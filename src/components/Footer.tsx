@@ -13,7 +13,7 @@ export const Footer = () => {
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <Link href="/" className="flex items-center gap-3 mb-6 group w-fit">
-              <span className="grid place-items-center h-9 w-9 bg-[#002FA7] text-white font-display font-semibold text-lg">K</span>
+              <span className="grid place-items-center h-9 w-9 bg-[#C5221F] text-white font-display font-semibold text-lg">K</span>
               <span className="font-display font-semibold tracking-tight text-lg">KD ENGINEERS INDIA</span>
             </Link>
             <p className="text-white/55 font-light max-w-md leading-relaxed">

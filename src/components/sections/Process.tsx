@@ -30,7 +30,7 @@ export const Process = () => (
           <Reveal
             key={s.n}
             delay={(i % 4) * 0.07}
-            className="group border-r border-b border-white/15 p-8 md:p-10 min-h-[220px] flex flex-col hover:bg-[#002FA7] transition-colors duration-500"
+            className="group border-r border-b border-white/15 p-8 md:p-10 min-h-[220px] flex flex-col hover:bg-[#C5221F] transition-colors duration-500"
             data-testid={`process-step-${s.n}`}
           >
             <span className="font-display text-5xl font-extralight text-white/25 group-hover:text-white/80 transition-colors duration-500">{s.n}</span>

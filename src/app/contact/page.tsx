@@ -59,7 +59,7 @@ function ContactFormContent() {
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
               <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] mb-2 font-medium">
-                Full Name <span className="text-[#E53E3E]">*</span>
+                Full Name <span className="text-[#FF3B30]">*</span>
               </label>
               <input
                 type="text"
@@ -68,12 +68,12 @@ function ContactFormContent() {
                 onChange={onChange}
                 required
                 placeholder="John Doe"
-                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#002FA7] focus:bg-white outline-none transition-colors"
+                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors"
               />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] mb-2 font-medium">
-                Email Address <span className="text-[#E53E3E]">*</span>
+                Email Address <span className="text-[#FF3B30]">*</span>
               </label>
               <input
                 type="email"
@@ -82,7 +82,7 @@ function ContactFormContent() {
                 onChange={onChange}
                 required
                 placeholder="john@company.com"
-                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#002FA7] focus:bg-white outline-none transition-colors"
+                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors"
               />
             </div>
           </div>
@@ -98,7 +98,7 @@ function ContactFormContent() {
                 value={form.company}
                 onChange={onChange}
                 placeholder="Acme Manufacturing Ltd."
-                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#002FA7] focus:bg-white outline-none transition-colors"
+                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors"
               />
             </div>
             <div>
@@ -111,7 +111,7 @@ function ContactFormContent() {
                 value={form.phone}
                 onChange={onChange}
                 placeholder="+91 98765 43210"
-                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#002FA7] focus:bg-white outline-none transition-colors"
+                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors"
               />
             </div>
           </div>
@@ -126,13 +126,13 @@ function ContactFormContent() {
               value={form.interest}
               onChange={onChange}
               placeholder="e.g. Automatic Wire Cutting & Stripping Machine"
-              className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#002FA7] focus:bg-white outline-none transition-colors"
+              className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors"
             />
           </div>
 
           <div>
             <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] mb-2 font-medium">
-              Project Details & Requirements <span className="text-[#E53E3E]">*</span>
+              Project Details & Requirements <span className="text-[#FF3B30]">*</span>
             </label>
             <textarea
               name="message"
@@ -141,14 +141,14 @@ function ContactFormContent() {
               required
               rows={5}
               placeholder="Describe wire specifications, production volume, or custom applicator requirements…"
-              className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#002FA7] focus:bg-white outline-none transition-colors resize-none"
+              className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors resize-none"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#002FA7] text-white py-4 text-sm font-mono uppercase tracking-widest font-semibold hover:bg-[#0A0A0A] transition-colors disabled:opacity-60 flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full bg-[#C5221F] text-white py-4 text-sm font-mono uppercase tracking-widest font-semibold hover:bg-[#0A0A0A] transition-colors disabled:opacity-60 flex items-center justify-center gap-2 cursor-pointer"
           >
             {loading ? (
               <>
@@ -169,31 +169,31 @@ function ContactFormContent() {
           <h3 className="font-display text-xl font-medium text-[#0A0A0A] mb-6">Direct Contact Channels</h3>
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#002FA7]/10 text-[#002FA7] shrink-0">
+              <div className="p-3 bg-[#C5221F]/10 text-[#C5221F] shrink-0">
                 <Mail size={20} />
               </div>
               <div>
                 <span className="font-mono text-[11px] uppercase tracking-wider text-[#525252] block">Sales & Support Email</span>
-                <a href={`mailto:${CONTACT.email}`} className="font-display text-lg text-[#0A0A0A] hover:text-[#002FA7] font-medium transition-colors">
+                <a href={`mailto:${CONTACT.email}`} className="font-display text-lg text-[#0A0A0A] hover:text-[#C5221F] font-medium transition-colors">
                   {CONTACT.email}
                 </a>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#002FA7]/10 text-[#002FA7] shrink-0">
+              <div className="p-3 bg-[#C5221F]/10 text-[#C5221F] shrink-0">
                 <Phone size={20} />
               </div>
               <div>
                 <span className="font-mono text-[11px] uppercase tracking-wider text-[#525252] block">Direct Phone</span>
-                <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="font-display text-lg text-[#0A0A0A] hover:text-[#002FA7] font-medium transition-colors">
+                <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="font-display text-lg text-[#0A0A0A] hover:text-[#C5221F] font-medium transition-colors">
                   {CONTACT.phone}
                 </a>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#002FA7]/10 text-[#002FA7] shrink-0">
+              <div className="p-3 bg-[#C5221F]/10 text-[#C5221F] shrink-0">
                 <MapPin size={20} />
               </div>
               <div>
@@ -207,7 +207,7 @@ function ContactFormContent() {
         </div>
 
         <div className="bg-[#0A0A0A] text-white p-8 space-y-4">
-          <div className="flex items-center gap-2 text-xs font-mono text-[#002FA7] uppercase tracking-wider font-semibold">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#C5221F] uppercase tracking-wider font-semibold">
             <Clock size={16} /> Operating Hours
           </div>
           <p className="text-xs text-white/70 font-light leading-relaxed">
@@ -230,11 +230,11 @@ export default function ContactPage() {
           <div className="mx-auto max-w-[1600px] px-6 md:px-12">
             <div className="max-w-3xl">
               <Reveal>
-                <Overline color="text-[#002FA7]">Get In Touch</Overline>
+                <Overline color="text-[#C5221F]">Get In Touch</Overline>
               </Reveal>
               <Reveal delay={0.1}>
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-[#0A0A0A] tracking-tight mt-4">
-                  Contact Our <span className="text-[#002FA7] font-medium">Engineering Team</span>
+                  Contact Our <span className="text-[#C5221F] font-medium">Engineering Team</span>
                 </h1>
               </Reveal>
               <Reveal delay={0.2}>

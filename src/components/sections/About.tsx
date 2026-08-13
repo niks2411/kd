@@ -44,10 +44,10 @@ const Chapter = ({ n, title, children, img, flip }: ChapterProps) => {
 export const About = () => (
   <section id="about" className="py-28 md:py-40 mx-auto max-w-[1600px] px-6 md:px-12 bg-[#F9FAFB]" data-testid="about">
     <div className="mb-20 md:mb-28 max-w-4xl">
-      <Reveal><Overline color="text-[#002FA7]">About KD Engineers</Overline></Reveal>
+      <Reveal><Overline color="text-[#C5221F]">About KD Engineers</Overline></Reveal>
       <Reveal delay={0.1}>
         <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight mt-6 leading-[1.02] text-[#0A0A0A]">
-          Engineering excellence built on <span className="text-[#002FA7]">innovation.</span>
+          Engineering excellence built on <span className="text-[#C5221F]">innovation.</span>
         </h2>
       </Reveal>
     </div>
@@ -71,7 +71,7 @@ export const About = () => (
         { k: "Our Mission", t: "Empower manufacturers, everywhere", b: "To improve production efficiency, reduce downtime, enhance product quality and create long-term value through continuous innovation and dedicated after-sales support." },
       ].map((v, i) => (
         <Reveal key={v.k} delay={i * 0.1} className="bg-[#F9FAFB] p-10 md:p-16">
-          <Overline color="text-[#E53E3E]">{v.k}</Overline>
+          <Overline color="text-[#FF3B30]">{v.k}</Overline>
           <h4 className="font-display text-2xl md:text-3xl font-medium mt-6 mb-4 tracking-tight text-[#0A0A0A]">{v.t}</h4>
           <p className="text-[#525252] font-light leading-relaxed">{v.b}</p>
         </Reveal>

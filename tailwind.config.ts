@@ -14,8 +14,8 @@ const config: Config = {
         mono: ["IBM Plex Mono", "monospace"],
       },
       colors: {
-        klein: "#002FA7",
-        signal: "#E53E3E",
+        klein: "#C5221F",
+        signal: "#FF3B30",
         ink: {
           DEFAULT: "#0A0A0A",
           soft: "#525252",

@@ -26,14 +26,14 @@ export const Hero = () => {
       <div className="relative z-10 mx-auto max-w-[1600px] w-full px-6 md:px-12">
         <motion.div style={{ opacity: fade }}>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mb-6">
-            <Overline color="text-[#002FA7]">KD Engineers India Pvt. Ltd. — Est. Precision</Overline>
+            <Overline color="text-[#C5221F]">KD Engineers India Pvt. Ltd. — Est. Precision</Overline>
           </motion.div>
 
           {/* Refined headline scale & clean line block hierarchy */}
           <div className="max-w-full lg:max-w-[54%]">
             <h1 className="font-display uppercase font-medium tracking-tight leading-[1.02] text-3xl sm:text-5xl md:text-6xl lg:text-[3.6rem] text-[#0A0A0A]">
               <MaskLine delay={0.35}>Engineering</MaskLine>
-              <MaskLine delay={0.5} className="text-[#002FA7]">the Future of</MaskLine>
+              <MaskLine delay={0.5} className="text-[#C5221F]">the Future of</MaskLine>
               <MaskLine delay={0.65}>Wire Harness</MaskLine>
               <MaskLine delay={0.8}>Manufacturing</MaskLine>
             </h1>
@@ -60,7 +60,7 @@ export const Hero = () => {
               <Link
                 href="/products"
                 data-testid="hero-explore-btn"
-                className="group inline-flex items-center gap-3 bg-[#0A0A0A] text-white px-7 py-4 text-sm font-medium hover:bg-[#002FA7] transition-colors duration-300 shadow-sm"
+                className="group inline-flex items-center gap-3 bg-[#0A0A0A] text-white px-7 py-4 text-sm font-medium hover:bg-[#C5221F] transition-colors duration-300 shadow-sm"
               >
                 Explore Our Solutions
                 <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -83,7 +83,7 @@ export const Hero = () => {
             className="mt-12 hidden md:flex flex-wrap gap-x-8 gap-y-2 border-t border-[#E5E7EB] pt-6 font-mono text-xs uppercase tracking-[0.18em] text-[#525252]"
           >
             {PROMISES.map((p) => (
-              <li key={p} className="flex items-center gap-2"><span className="h-1.5 w-1.5 bg-[#002FA7]" />{p}</li>
+              <li key={p} className="flex items-center gap-2"><span className="h-1.5 w-1.5 bg-[#C5221F]" />{p}</li>
             ))}
           </motion.ul>
         </motion.div>

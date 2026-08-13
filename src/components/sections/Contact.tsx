@@ -21,7 +21,7 @@ interface FieldProps {
 const Field = ({ label, name, value, onChange, type = "text", required, textarea, placeholder }: FieldProps) => (
   <label className="block group">
     <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/50">
-      {label}{required && <span className="text-[#E53E3E]"> *</span>}
+      {label}{required && <span className="text-[#FF3B30]"> *</span>}
     </span>
     {textarea ? (
       <textarea
@@ -79,7 +79,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="bg-[#002FA7] text-white" data-testid="contact">
+    <section id="contact" className="bg-[#C5221F] text-white" data-testid="contact">
       {/* Headline CTA */}
       <div className="mx-auto max-w-[1600px] px-6 md:px-12 pt-28 md:pt-40">
         <Reveal>
@@ -117,7 +117,7 @@ export const Contact = () => {
               type="submit"
               disabled={loading}
               data-testid="contact-submit"
-              className="group inline-flex items-center gap-3 bg-white text-[#002FA7] px-8 py-4 font-medium hover:bg-[#0A0A0A] hover:text-white transition-colors duration-300 disabled:opacity-60 cursor-pointer"
+              className="group inline-flex items-center gap-3 bg-white text-[#C5221F] px-8 py-4 font-medium hover:bg-[#0A0A0A] hover:text-white transition-colors duration-300 disabled:opacity-60 cursor-pointer"
             >
               {loading ? (
                 <>

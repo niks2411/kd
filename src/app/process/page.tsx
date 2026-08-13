@@ -17,11 +17,11 @@ export default function ProcessPage() {
           <div className="mx-auto max-w-[1600px] px-6 md:px-12">
             <div className="max-w-3xl">
               <Reveal>
-                <Overline color="text-[#002FA7]">Engineering Workflow</Overline>
+                <Overline color="text-[#C5221F]">Engineering Workflow</Overline>
               </Reveal>
               <Reveal delay={0.1}>
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-[#0A0A0A] tracking-tight mt-4">
-                  Our 8-Step <span className="text-[#002FA7] font-medium">Turnkey Engineering</span> Process
+                  Our 8-Step <span className="text-[#C5221F] font-medium">Turnkey Engineering</span> Process
                 </h1>
               </Reveal>
               <Reveal delay={0.2}>
@@ -37,8 +37,8 @@ export default function ProcessPage() {
         <section className="py-20 mx-auto max-w-[1600px] px-6 md:px-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {PROCESS.map((step, i) => (
-              <Reveal key={step.n} delay={i * 0.07} className="bg-white border border-[#E5E7EB] p-8 flex flex-col hover:border-[#002FA7] transition-all">
-                <span className="font-display text-5xl font-extralight text-[#002FA7]/30 font-bold mb-4">
+              <Reveal key={step.n} delay={i * 0.07} className="bg-white border border-[#E5E7EB] p-8 flex flex-col hover:border-[#C5221F] transition-all">
+                <span className="font-display text-5xl font-extralight text-[#C5221F]/30 font-bold mb-4">
                   {step.n}
                 </span>
                 <h3 className="font-display text-xl font-medium text-[#0A0A0A] mb-3">
@@ -47,7 +47,7 @@ export default function ProcessPage() {
                 <p className="text-xs text-[#525252] font-light leading-relaxed">
                   {step.d}
                 </p>
-                <div className="mt-auto pt-6 border-t border-[#E5E7EB] flex items-center gap-1.5 text-[11px] font-mono text-[#002FA7]">
+                <div className="mt-auto pt-6 border-t border-[#E5E7EB] flex items-center gap-1.5 text-[11px] font-mono text-[#C5221F]">
                   <CheckCircle2 size={14} /> Stage Verified
                 </div>
               </Reveal>
@@ -67,7 +67,7 @@ export default function ProcessPage() {
               <div className="lg:col-span-4 flex justify-start lg:justify-end">
                 <Link
                   href="/contact"
-                  className="bg-[#002FA7] text-white px-7 py-4 text-xs font-mono uppercase tracking-widest font-semibold hover:bg-white hover:text-[#002FA7] transition-colors inline-flex items-center gap-2"
+                  className="bg-[#C5221F] text-white px-7 py-4 text-xs font-mono uppercase tracking-widest font-semibold hover:bg-white hover:text-[#C5221F] transition-colors inline-flex items-center gap-2"
                 >
                   Start Project Audit <ArrowRight size={14} />
                 </Link>

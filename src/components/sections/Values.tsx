@@ -23,7 +23,7 @@ export const Values = () => (
           <Reveal
             key={v.k}
             delay={(i % 3) * 0.08}
-            className="group border-b border-r border-white/15 p-8 md:p-10 hover:bg-[#002FA7] transition-colors duration-500 relative"
+            className="group border-b border-r border-white/15 p-8 md:p-10 hover:bg-[#C5221F] transition-colors duration-500 relative"
             data-testid={`value-${v.title.toLowerCase().replace(/\s/g, "-")}`}
           >
             <span className="font-mono text-sm text-white/40 group-hover:text-white/70 transition-colors">{v.k}</span>
@@ -48,7 +48,7 @@ export const Values = () => (
           {WHY.map((w, i) => (
             <Reveal key={w.title} delay={(i % 3) * 0.08} className="py-8 border-t border-white/15 pr-6">
               <div className="flex items-start gap-4">
-                <span className="font-mono text-[#E53E3E] text-sm mt-1">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-mono text-[#FF3B30] text-sm mt-1">{String(i + 1).padStart(2, "0")}</span>
                 <div>
                   <h4 className="font-display text-xl font-medium mb-3">{w.title}</h4>
                   <p className="text-white/55 font-light leading-relaxed text-sm">{w.body}</p>

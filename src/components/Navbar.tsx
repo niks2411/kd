@@ -31,7 +31,7 @@ export const Navbar = () => {
       >
         <div className="mx-auto max-w-[1600px] px-6 md:px-12 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group text-left" data-testid="logo-btn">
-            <span className="grid place-items-center h-9 w-9 bg-[#002FA7] text-white font-display font-semibold text-lg transition-transform group-hover:scale-105">K</span>
+            <span className="grid place-items-center h-9 w-9 bg-[#C5221F] text-white font-display font-semibold text-lg transition-transform group-hover:scale-105">K</span>
             <span className="font-display font-semibold tracking-tight text-lg leading-none text-[#0A0A0A]">
               KD ENGINEERS
               <span className="block text-[10px] font-mono font-normal tracking-[0.22em] text-[#525252] mt-0.5">INDIA PVT. LTD.</span>
@@ -47,14 +47,14 @@ export const Navbar = () => {
                   href={l.href}
                   data-testid={`nav-${l.label.toLowerCase()}`}
                   className={`text-sm font-medium tracking-wide transition-colors py-1 relative ${
-                    isActive ? "text-[#002FA7] font-semibold" : "text-[#0A0A0A] hover:text-[#002FA7]"
+                    isActive ? "text-[#C5221F] font-semibold" : "text-[#0A0A0A] hover:text-[#C5221F]"
                   }`}
                 >
                   {l.label}
                   {isActive && (
                     <motion.span
                       layoutId="activeNav"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#002FA7]"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C5221F]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -66,7 +66,7 @@ export const Navbar = () => {
           <Link
             href="/contact"
             data-testid="nav-quote-btn"
-            className="hidden lg:inline-flex items-center gap-2 bg-[#0A0A0A] text-white px-5 py-2.5 text-sm font-medium group hover:bg-[#002FA7] transition-colors duration-300"
+            className="hidden lg:inline-flex items-center gap-2 bg-[#0A0A0A] text-white px-5 py-2.5 text-sm font-medium group hover:bg-[#C5221F] transition-colors duration-300"
           >
             Request a Quote
             <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -106,7 +106,7 @@ export const Navbar = () => {
                     href={l.href}
                     onClick={() => setOpen(false)}
                     className={`block font-display text-3xl font-light tracking-tight py-3 border-b border-[#E5E7EB] ${
-                      pathname === l.href ? "text-[#002FA7] font-normal" : "text-[#0A0A0A]"
+                      pathname === l.href ? "text-[#C5221F] font-normal" : "text-[#0A0A0A]"
                     }`}
                   >
                     {l.label}
@@ -118,7 +118,7 @@ export const Navbar = () => {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="w-full bg-[#002FA7] text-white py-4 text-center font-medium text-lg flex items-center justify-center gap-2"
+                className="w-full bg-[#C5221F] text-white py-4 text-center font-medium text-lg flex items-center justify-center gap-2"
               >
                 Request a Quote <ArrowUpRight size={20} />
               </Link>

@@ -20,11 +20,11 @@ export default function AboutPage() {
           <div className="mx-auto max-w-[1600px] px-6 md:px-12">
             <div className="max-w-3xl">
               <Reveal>
-                <Overline color="text-[#002FA7]">About KD Engineers India</Overline>
+                <Overline color="text-[#C5221F]">About KD Engineers India</Overline>
               </Reveal>
               <Reveal delay={0.1}>
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-[#0A0A0A] tracking-tight mt-4">
-                  Engineering Excellence Built on <span className="text-[#002FA7] font-medium">Innovation</span>.
+                  Engineering Excellence Built on <span className="text-[#C5221F] font-medium">Innovation</span>.
                 </h1>
               </Reveal>
               <Reveal delay={0.2}>
@@ -52,7 +52,7 @@ export default function AboutPage() {
                       onClick={() => setActiveTab(tab.id as any)}
                       className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider transition-colors cursor-pointer ${
                         activeTab === tab.id
-                          ? "bg-[#002FA7] text-white"
+                          ? "bg-[#C5221F] text-white"
                           : "bg-[#F9FAFB] text-[#525252] border border-[#E5E7EB] hover:text-[#0A0A0A]"
                       }`}
                     >
@@ -112,7 +112,7 @@ export default function AboutPage() {
         <section className="py-20 bg-white border-y border-[#E5E7EB]">
           <div className="mx-auto max-w-[1600px] px-6 md:px-12">
             <div className="max-w-3xl mb-16">
-              <Reveal><Overline color="text-[#002FA7]">Operational Framework</Overline></Reveal>
+              <Reveal><Overline color="text-[#C5221F]">Operational Framework</Overline></Reveal>
               <Reveal delay={0.1}>
                 <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-light text-[#0A0A0A] tracking-tight mt-3">
                   Our 3P Philosophy
@@ -123,7 +123,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-3 gap-8">
               {PHILOSOPHY_3P.map((p, i) => (
                 <Reveal key={p.p} delay={i * 0.1} className="bg-[#F9FAFB] border border-[#E5E7EB] p-8">
-                  <span className="font-mono text-xs uppercase tracking-widest text-[#E53E3E] font-bold">P{i + 1}</span>
+                  <span className="font-mono text-xs uppercase tracking-widest text-[#FF3B30] font-bold">P{i + 1}</span>
                   <h3 className="font-display text-3xl font-light text-[#0A0A0A] mt-3 mb-4">{p.p}</h3>
                   <p className="text-sm text-[#525252] font-light leading-relaxed">{p.body}</p>
                 </Reveal>
@@ -135,7 +135,7 @@ export default function AboutPage() {
         {/* Core Values Grid */}
         <section className="py-20 mx-auto max-w-[1600px] px-6 md:px-12">
           <div className="max-w-3xl mb-16">
-            <Reveal><Overline color="text-[#002FA7]">Foundational Principles</Overline></Reveal>
+            <Reveal><Overline color="text-[#C5221F]">Foundational Principles</Overline></Reveal>
             <Reveal delay={0.1}>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-light text-[#0A0A0A] tracking-tight mt-3">
                 Core Values Behind Every Machine
@@ -145,8 +145,8 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CORE_VALUES.map((v, i) => (
-              <Reveal key={v.k} delay={i * 0.08} className="bg-white border border-[#E5E7EB] p-8 hover:border-[#002FA7] transition-colors">
-                <span className="font-mono text-xs text-[#002FA7] font-semibold">{v.k}</span>
+              <Reveal key={v.k} delay={i * 0.08} className="bg-white border border-[#E5E7EB] p-8 hover:border-[#C5221F] transition-colors">
+                <span className="font-mono text-xs text-[#C5221F] font-semibold">{v.k}</span>
                 <h3 className="font-display text-xl font-medium text-[#0A0A0A] mt-3 mb-3">{v.title}</h3>
                 <p className="text-xs text-[#525252] font-light leading-relaxed">{v.body}</p>
               </Reveal>
@@ -178,12 +178,12 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-[#002FA7] text-white text-center">
+        <section className="py-16 bg-[#C5221F] text-white text-center">
           <div className="mx-auto max-w-[1600px] px-6 md:px-12">
             <h3 className="font-display text-3xl font-light">Partner with India's Premier Engineering Team</h3>
             <p className="mt-2 text-white/80 font-light text-sm">Consult with our automation experts to design your custom production line.</p>
             <div className="mt-6">
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-[#002FA7] px-7 py-3.5 text-sm font-semibold hover:bg-[#0A0A0A] hover:text-white transition-colors">
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-[#C5221F] px-7 py-3.5 text-sm font-semibold hover:bg-[#0A0A0A] hover:text-white transition-colors">
                 Contact Sales Team <ArrowRight size={16} />
               </Link>
             </div>
