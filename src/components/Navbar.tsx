@@ -40,17 +40,22 @@ export const Navbar = () => {
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-          scrolled || productsHovered
-            ? "bg-[#ffffff]/95 backdrop-blur-md border-b border-[#E5E7EB] shadow-sm py-3"
-            : "bg-transparent py-5"
+        className={`fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-[#E5E7EB] shadow-xs transition-all duration-300 ${
+          scrolled || productsHovered ? "py-2.5" : "py-3.5"
         }`}
         data-testid="navbar"
       >
         <div className="mx-auto max-w-[1600px] px-6 md:px-12 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5 group" data-testid="logo-btn">
-            <img src="/logo without bg.jpg.jpeg" alt="KD Engineers India" className="h-14 w-auto object-contain transition-transform group-hover:scale-105" />
-            <span className="font-display font-semibold tracking-tight text-lg text-[#0A0A0A]">KD Engineers</span>
+          <Link href="/" className="flex items-center gap-3 group" data-testid="logo-btn">
+            <img src="/logo without bg.jpg.jpeg" alt="KD Engineers India" className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105" />
+            <div className="flex flex-col justify-center">
+              <span className="font-display font-bold tracking-tight text-sm sm:text-base text-[#0A0A0A] leading-tight">
+                KD ENGINEERS INDIA PVT. LTD.
+              </span>
+              <span className="text-[9px] sm:text-[10px] font-mono font-semibold tracking-wider text-[#fd0000] uppercase mt-0.5">
+                ( SIMPLIFYING WIRING HARNESS MAKING )
+              </span>
+            </div>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">

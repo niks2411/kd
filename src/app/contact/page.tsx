@@ -106,11 +106,13 @@ export default function ContactPage() {
                     <div className="p-2.5 bg-[#fd0000]/10 text-[#fd0000] shrink-0 rounded-xs">
                       <Mail size={18} />
                     </div>
-                    <div>
-                      <span className="text-[10px] font-mono text-[#9CA3AF] uppercase block">Email Address</span>
-                      <a href={`mailto:${CONTACT.email}`} className="font-display text-sm text-white hover:text-[#fd0000] font-medium transition-colors">
-                        {CONTACT.email}
-                      </a>
+                    <div className="space-y-1">
+                      <span className="text-[10px] font-mono text-[#9CA3AF] uppercase block">Email Support</span>
+                      {CONTACT.emails.map((e) => (
+                        <a key={e} href={`mailto:${e}`} className="block text-xs text-white hover:text-[#fd0000] font-medium transition-colors">
+                          {e}
+                        </a>
+                      ))}
                     </div>
                   </div>
 
@@ -118,11 +120,13 @@ export default function ContactPage() {
                     <div className="p-2.5 bg-[#fd0000]/10 text-[#fd0000] shrink-0 rounded-xs">
                       <Phone size={18} />
                     </div>
-                    <div>
-                      <span className="text-[10px] font-mono text-[#9CA3AF] uppercase block">Phone / Support Line</span>
-                      <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="font-display text-sm text-white hover:text-[#fd0000] font-medium transition-colors">
-                        {CONTACT.phone}
-                      </a>
+                    <div className="space-y-1">
+                      <span className="text-[10px] font-mono text-[#9CA3AF] uppercase block">Phone / Support Lines</span>
+                      {CONTACT.phones.map((p) => (
+                        <a key={p} href={`tel:${p.replace(/\s/g, "").replace(/-/g, "")}`} className="block text-xs text-white hover:text-[#fd0000] font-medium transition-colors">
+                          {p}
+                        </a>
+                      ))}
                     </div>
                   </div>
 
@@ -130,9 +134,14 @@ export default function ContactPage() {
                     <div className="p-2.5 bg-[#fd0000]/10 text-[#fd0000] shrink-0 rounded-xs">
                       <MapPin size={18} />
                     </div>
-                    <div>
-                      <span className="text-[10px] font-mono text-[#9CA3AF] uppercase block">Plant Address</span>
-                      <p className="text-xs text-[#D1D5DB] leading-relaxed font-light mt-0.5">{CONTACT.address}</p>
+                    <div className="space-y-2">
+                      <span className="text-[10px] font-mono text-[#9CA3AF] uppercase block">Manufacturing Units</span>
+                      {CONTACT.units.map((u) => (
+                        <div key={u.name} className="space-y-0.5">
+                          <strong className="block text-white font-semibold text-xs">{u.name}</strong>
+                          <p className="text-[11px] text-[#D1D5DB] leading-relaxed font-light">{u.address}</p>
+                        </div>
+                      ))}
                     </div>
                   </div>
 

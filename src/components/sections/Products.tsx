@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { PRODUCTS, OTHER_CAPABILITIES } from "@/lib/data";
 
 export const Products = () => (
-  <section id="products" className="py-28 md:py-40 mx-auto max-w-[1600px] px-6 md:px-12 bg-[#ffffff]" data-testid="products">
+  <section id="products" className="py-16 md:py-24 mx-auto max-w-[1600px] px-6 md:px-12 bg-[#ffffff]" data-testid="products">
     <div className="grid lg:grid-cols-12 gap-8 items-end mb-16 md:mb-20">
       <div className="lg:col-span-8">
         <Reveal><Overline color="text-[#fd0000]">Our Product Portfolio</Overline></Reveal>

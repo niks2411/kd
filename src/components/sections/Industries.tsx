@@ -1,17 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { Reveal, Overline } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 import { INDUSTRIES } from "@/lib/data";
+import { Sparkles } from "lucide-react";
 
 export const Industries = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="industries" className="bg-[#ffffff] py-28 md:py-40" data-testid="industries">
+    <section id="industries" className="bg-[#ffffff] py-16 md:py-24" data-testid="industries">
       <div className="mx-auto max-w-[1600px] px-6 md:px-12">
         <div className="max-w-3xl mb-16 md:mb-20">
-          <Reveal><Overline color="text-[#fd0000]">Industries We Serve</Overline></Reveal>
+          <Reveal>
+            <div className="inline-block bg-[#fd0000] text-white px-4 py-1.5 text-sm sm:text-base font-mono font-bold uppercase tracking-[0.2em] rounded-xs shadow-md mb-4">
+              INDUSTRIES WE SERVE
+            </div>
+          </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight mt-6 leading-[1.02] text-[#0A0A0A]">
               Engineering expertise across diverse industries.

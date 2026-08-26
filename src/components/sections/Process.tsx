@@ -4,7 +4,7 @@ import { Reveal, Overline } from "@/components/motion/Reveal";
 import { PROCESS } from "@/lib/data";
 
 export const Process = () => (
-  <section id="process" className="bg-[#0A0A0A] text-white py-28 md:py-40" data-testid="process">
+  <section id="process" className="bg-[#0A0A0A] text-white py-16 md:py-24" data-testid="process">
     <div className="mx-auto max-w-[1600px] px-6 md:px-12">
       <div className="grid lg:grid-cols-12 gap-8 items-end mb-20">
         <div className="lg:col-span-8">

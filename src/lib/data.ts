@@ -8,15 +8,15 @@ export const NAV_LINKS = [
 ];
 
 export const PROMISES = [
-  "20+ Years Technical Expertise",
+  "25+ Years Technical Expertise",
   "Custom Automation Engineering",
   "End-to-End Turnkey Execution",
   "Pan-India Service & Support",
 ];
 
 export const STATS = [
-  { value: "20+", label: "Years of Engineering" },
-  { value: "500+", label: "Machines Deployed" },
+  { value: "25+", label: "Years of Engineering" },
+  { value: "1000+", label: "Machines Deployed" },
   { value: "99.8%", label: "Operating Uptime" },
   { value: "150+", label: "Enterprise Clients" },
 ];
@@ -41,7 +41,7 @@ export const CORE_VALUES = [
 ];
 
 export const WHY = [
-  { title: "20+ Years Industry Leadership", body: "Trusted by tier-1 automotive, appliance, and defense equipment manufacturers across India." },
+  { title: "25+ Years Industry Leadership", body: "Trusted by tier-1 automotive, appliance, and defense equipment manufacturers across India." },
   { title: "In-House R&D & Fabrication", body: "From CAD blueprint to CNC milling and assembly, all critical components are manufactured under one roof." },
   { title: "Customized Machinery Solutions", body: "We adapt feed systems, crimp dies, and cycle speeds to match exact client production requirements." },
   { title: "Rigorous Quality Assurance", body: "Every machine undergoes a 72-hour stress test and crimp force analysis prior to dispatch." },
@@ -353,9 +353,8 @@ export const PRODUCTS = [
 ];
 
 export const PRODUCT_DROPDOWN_MENU = {
-  title: "New Product",
+  title: "Products",
   col1: [
-    { label: "Cut", href: "/products/cut" },
     {
       label: "Cut&Strip",
       href: "/products/cut-strip",
@@ -377,9 +376,7 @@ export const PRODUCT_DROPDOWN_MENU = {
     { label: "Cable Solder& Weld Machine", href: "/products/cable-solder-weld" },
     { label: "Prefeeding& Deposit System", href: "/products/prefeeding-deposit" },
     { label: "Heat Shrinkage", href: "/products/heat-shrinkage" },
-    { label: "Copper Belt Press", href: "/products/copper-belt-press" },
     { label: "Printing Marking", href: "/products/printing-marking" },
-    { label: "Solar Cable Line", href: "/products/solar-cable-line" },
   ],
   col2: [
     {
@@ -392,22 +389,9 @@ export const PRODUCT_DROPDOWN_MENU = {
         { label: "Crimp Force Monitor System", href: "/products/crimp" },
       ],
     },
-    { label: "Shield Process", href: "/products/shield-process" },
-    {
-      label: "Cut Strip Terminate& Solder",
-      href: "/products/cut-strip-terminate-solder",
-      subItems: [
-        { label: "Automatic Cut-Strip-Terminate Line", href: "/products/cut-strip-terminate-solder" },
-        { label: "Auto Soldering & Tinning Machine", href: "/products/cut-strip-terminate-solder" },
-      ],
-    },
     { label: "Wind & Nylon Tying", href: "/products/wind-nylon-tying" },
-    { label: "Tape Bundling", href: "/products/tape-bundling" },
-    { label: "Plug Production", href: "/products/plug-production" },
-    { label: "PVC Injection", href: "/products/pvc-injection" },
     { label: "Tape Dispenser", href: "/products/tape-dispenser" },
     { label: "Wire Harness Tester & Assembly Table", href: "/products/wire-harness-tester" },
-    { label: "Moulds&Accessory", href: "/products/moulds-accessory" },
   ],
 };
 
@@ -541,9 +525,28 @@ export const ETHOS = [
 ];
 
 export const CONTACT = {
-  email: "sales@kdengineersindia.com",
-  phone: "+91 98100 00000",
-  address: "Plot No. 42, Industrial Area, Sector 57, Gurugram, Haryana - 122001, India",
+  emails: [
+    "info@kdengineers.in",
+    "sales3@kdengineers.in",
+    "kdengrs@gmail.com",
+  ],
+  email: "info@kdengineers.in",
+  phones: [
+    "+91 99533-36623",
+    "+91 9350962939",
+  ],
+  phone: "+91 99533-36623",
+  units: [
+    {
+      name: "UNIT I",
+      address: "Plot No. 56A, Gali No. 6, Krishna Colony, Industrial Area, Sector 25, Faridabad – 121004 (Hr.) INDIA",
+    },
+    {
+      name: "UNIT II",
+      address: "Plot No. A-7/2/F-8, Industrial Area, Phase IV, MIDC Chakan Tal Khed, Nighoje, Pune – 410501",
+    },
+  ],
+  address: "UNIT I: Faridabad, Haryana | UNIT II: Pune, Maharashtra",
 };
 
 

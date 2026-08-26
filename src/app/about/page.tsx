@@ -35,7 +35,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-[#ffffff] text-[#0A0A0A]">
       <Navbar />
 
-      <main className="pt-20 pb-0">
+      <main className="pt-24 pb-0">
         {/* HIGH-IMPACT HERO BANNER */}
         <section className="relative bg-[#0A0A0A] text-white py-16 md:py-24 overflow-hidden border-b border-[#262626]">
           <div
@@ -49,13 +49,13 @@ export default function AboutPage() {
             <div className="max-w-3xl space-y-6">
               <Reveal>
                 <div className="inline-flex items-center gap-2 bg-[#fd0000] text-white px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider rounded-xs shadow-md">
-                  <Sparkles size={14} /> Two Decades of Engineering Excellence
+                  <Sparkles size={14} /> 25+ Years of Engineering Excellence
                 </div>
               </Reveal>
 
               <Reveal delay={0.1}>
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-tight">
-                  About KD Engineers <span className="text-[#fd0000] font-normal">India</span>
+                  About KD Engineers
                 </h1>
               </Reveal>
 
@@ -136,7 +136,7 @@ export default function AboutPage() {
                   {activeTab === "about" && (
                     <>
                       <h3 className="font-display text-2xl font-semibold text-[#0A0A0A] mb-2">
-                        Over 20 Years of Automation Leadership
+                        Over 25 Years of Automation Leadership
                       </h3>
                       <p>
                         Our journey has always been driven by one purpose — to simplify manufacturing while helping businesses achieve higher productivity, greater accuracy, and improved operational efficiency.

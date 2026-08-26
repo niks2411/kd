@@ -20,8 +20,8 @@ interface FieldProps {
 
 const Field = ({ label, name, value, onChange, type = "text", required, textarea, placeholder }: FieldProps) => (
   <label className="block group">
-    <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/50">
-      {label}{required && <span className="text-[#fd0000]"> *</span>}
+    <span className="font-mono text-xs uppercase tracking-[0.18em] text-white font-semibold block mb-1">
+      {label}{required && <span className="text-white font-bold"> *</span>}
     </span>
     {textarea ? (
       <textarea
@@ -32,7 +32,7 @@ const Field = ({ label, name, value, onChange, type = "text", required, textarea
         rows={4}
         placeholder={placeholder}
         data-testid={`contact-${name}`}
-        className="mt-3 w-full bg-transparent border-b border-white/25 focus:border-white pb-3 outline-none text-lg font-light text-white placeholder:text-white/25 transition-colors duration-300 resize-none"
+        className="mt-2 w-full bg-transparent border-b-2 border-white/60 focus:border-white pb-3 outline-none text-base sm:text-lg font-medium text-white placeholder:text-white/75 transition-colors duration-300 resize-none"
       />
     ) : (
       <input
@@ -43,7 +43,7 @@ const Field = ({ label, name, value, onChange, type = "text", required, textarea
         required={required}
         placeholder={placeholder}
         data-testid={`contact-${name}`}
-        className="mt-3 w-full bg-transparent border-b border-white/25 focus:border-white pb-3 outline-none text-lg font-light text-white placeholder:text-white/25 transition-colors duration-300"
+        className="mt-2 w-full bg-transparent border-b-2 border-white/60 focus:border-white pb-3 outline-none text-base sm:text-lg font-medium text-white placeholder:text-white/75 transition-colors duration-300"
       />
     )}
   </label>
@@ -83,15 +83,15 @@ export const Contact = () => {
       {/* Headline CTA */}
       <div className="mx-auto max-w-[1600px] px-6 md:px-12 pt-28 md:pt-40">
         <Reveal>
-          <Overline color="text-white/60">Ready to transform your manufacturing?</Overline>
+          <Overline color="text-white font-bold">Ready to transform your manufacturing?</Overline>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display uppercase font-medium tracking-tighter leading-[0.9] text-[11vw] md:text-[8vw] mt-6">
-            Let's build smarter<br />manufacturing<span className="text-white/40">.</span>
+          <h2 className="font-display uppercase font-medium tracking-tighter leading-[0.9] text-[11vw] md:text-[8vw] mt-6 text-white">
+            Let's build smarter<br />manufacturing<span className="text-white/60">.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-8 max-w-2xl text-lg font-light text-white/75 leading-relaxed">
+          <p className="mt-8 max-w-2xl text-lg sm:text-xl font-normal text-white leading-relaxed">
             Whether you require a single wire processing machine or a fully integrated automated
             production line, we have the expertise, technology and commitment to deliver.
           </p>
