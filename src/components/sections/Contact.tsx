@@ -132,24 +132,56 @@ export const Contact = () => {
           </div>
         </form>
 
-        <div className="lg:col-span-4 lg:col-start-9 flex flex-col gap-10 border-t border-white/20 pt-10 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-12">
-          {[
-            { k: "Email", v: CONTACT.email, href: `mailto:${CONTACT.email}` },
-            { k: "Phone", v: CONTACT.phone, href: `tel:${CONTACT.phone.replace(/\s/g, "")}` },
-            { k: "Location", v: CONTACT.address },
-          ].map((c) => (
-            <div key={c.k}>
-              <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/50">{c.k}</span>
-              {c.href ? (
-                <a href={c.href} className="block font-display text-xl md:text-2xl font-light mt-2 link-underline w-fit" data-testid={`contact-${c.k.toLowerCase()}`}>
-                  {c.v}
+        <div className="lg:col-span-4 lg:col-start-9 flex flex-col gap-6 border-t border-white/30 pt-10 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-12 text-white">
+          {/* Email Support */}
+          <div>
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/80 font-bold block mb-2">
+              Email Support
+            </span>
+            <div className="space-y-1">
+              {CONTACT.emails.map((e) => (
+                <a key={e} href={`mailto:${e}`} className="block font-display text-lg sm:text-xl font-normal hover:underline text-white">
+                  {e}
                 </a>
-              ) : (
-                <p className="font-display text-xl md:text-2xl font-light mt-2">{c.v}</p>
-              )}
+              ))}
             </div>
-          ))}
-          <p className="text-white/60 font-light text-sm leading-relaxed mt-auto pt-6 border-t border-white/10">
+          </div>
+
+          {/* Phone Lines */}
+          <div>
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/80 font-bold block mb-2">
+              Phone Lines
+            </span>
+            <div className="space-y-1">
+              {CONTACT.phones.map((p) => (
+                <a key={p} href={`tel:${p.replace(/\s/g, "").replace(/-/g, "")}`} className="block font-display text-lg sm:text-xl font-normal hover:underline text-white">
+                  {p}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Manufacturing Units */}
+          <div className="space-y-4 pt-4 border-t border-white/20">
+            <div>
+              <span className="font-mono text-xs font-bold text-white uppercase tracking-wider block mb-1">
+                UNIT I (Faridabad Plant)
+              </span>
+              <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
+                Plot No. 56A, Gali No. 6, Krishna Colony, Industrial Area, Sector 25, Faridabad – 121004 (Hr.) INDIA
+              </p>
+            </div>
+            <div>
+              <span className="font-mono text-xs font-bold text-white uppercase tracking-wider block mb-1">
+                UNIT II (Pune Plant)
+              </span>
+              <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
+                Plot No. A-7/2/F-8, Industrial Area, Phase IV, MIDC Chakan Tal Khed, Nighoje, Pune – 410501
+              </p>
+            </div>
+          </div>
+
+          <p className="text-white/80 font-light text-xs leading-relaxed mt-auto pt-4 border-t border-white/20">
             Professional consultation · Installation assistance · Operator training · Preventive
             maintenance · Spare parts · Long-term service partnerships.
           </p>
