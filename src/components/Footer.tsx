@@ -13,8 +13,8 @@ export const Footer = () => {
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <Link href="/" className="flex items-center gap-3 mb-6 group w-fit">
-              <span className="grid place-items-center h-9 w-9 bg-[#C5221F] text-white font-display font-semibold text-lg">K</span>
-              <span className="font-display font-semibold tracking-tight text-lg">KD ENGINEERS INDIA</span>
+              <img src="/logo without bg.jpg.jpeg" alt="KD Engineers India" className="h-24 w-auto object-contain" />
+              <span className="font-display font-semibold tracking-tight text-xl text-white">KD Engineers</span>
             </Link>
             <p className="text-white/55 font-light max-w-md leading-relaxed">
               Precision engineering, intelligent wire harness automation and manufacturing excellence —
@@ -23,21 +23,32 @@ export const Footer = () => {
           </div>
           <div className="md:col-span-3 md:col-start-7">
             <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/40">Navigation</span>
-            <ul className="mt-5 space-y-3">
-              {NAV_LINKS.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="text-white/70 hover:text-white transition-colors text-sm font-light">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-5 grid grid-cols-2 gap-3 max-w-[200px]">
+              <ul className="space-y-3">
+                {NAV_LINKS.slice(0, 3).map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-white/70 hover:text-[#fd0000] transition-colors text-sm font-light">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <ul className="space-y-3">
+                {NAV_LINKS.slice(3, 6).map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-white/70 hover:text-[#fd0000] transition-colors text-sm font-light">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
           <div className="md:col-span-3">
             <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/40">Contact</span>
             <ul className="mt-5 space-y-3 text-white/70">
-              <li><a href={`mailto:${CONTACT.email}`} className="hover:text-white transition-colors text-sm font-light">{CONTACT.email}</a></li>
-              <li><a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="hover:text-white transition-colors text-sm font-light">{CONTACT.phone}</a></li>
+              <li><a href={`mailto:${CONTACT.email}`} className="hover:text-[#fd0000] transition-colors text-sm font-light">{CONTACT.email}</a></li>
+              <li><a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="hover:text-[#fd0000] transition-colors text-sm font-light">{CONTACT.phone}</a></li>
               <li className="text-xs font-light text-white/50 leading-relaxed mt-2">{CONTACT.address}</li>
             </ul>
           </div>

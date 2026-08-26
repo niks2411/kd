@@ -23,7 +23,7 @@ const Chapter = ({ n, title, children, img, flip }: ChapterProps) => {
       <div className={`lg:col-span-6 ${flip ? "lg:order-2" : ""}`}>
         <div className="relative overflow-hidden aspect-[4/3] group border border-[#E5E7EB]">
           <motion.img style={{ y }} src={img} alt={title} className="absolute inset-0 h-[116%] w-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-700" />
-          <span className="absolute top-4 left-4 font-mono text-xs tracking-[0.2em] bg-[#F9FAFB]/90 px-3 py-1 text-[#0A0A0A]">CH. {n}</span>
+          <span className="absolute top-4 left-4 font-mono text-xs tracking-[0.2em] bg-[#ffffff]/90 px-3 py-1 text-[#0A0A0A]">CH. {n}</span>
         </div>
       </div>
       <div className={`lg:col-span-6 ${flip ? "lg:order-1" : ""}`}>
@@ -42,12 +42,12 @@ const Chapter = ({ n, title, children, img, flip }: ChapterProps) => {
 };
 
 export const About = () => (
-  <section id="about" className="py-28 md:py-40 mx-auto max-w-[1600px] px-6 md:px-12 bg-[#F9FAFB]" data-testid="about">
+  <section id="about" className="py-28 md:py-40 mx-auto max-w-[1600px] px-6 md:px-12 bg-[#ffffff]" data-testid="about">
     <div className="mb-20 md:mb-28 max-w-4xl">
-      <Reveal><Overline color="text-[#C5221F]">About KD Engineers</Overline></Reveal>
+      <Reveal><Overline color="text-[#fd0000]">About KD Engineers</Overline></Reveal>
       <Reveal delay={0.1}>
         <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight mt-6 leading-[1.02] text-[#0A0A0A]">
-          Engineering excellence built on <span className="text-[#C5221F]">innovation.</span>
+          Engineering excellence built on <span className="text-[#fd0000]">innovation.</span>
         </h2>
       </Reveal>
     </div>
@@ -70,8 +70,8 @@ export const About = () => (
         { k: "Our Vision", t: "The most trusted engineering partner", b: "To deliver innovative automation technologies, precision machinery and world-class engineering solutions that shape the future of industrial manufacturing." },
         { k: "Our Mission", t: "Empower manufacturers, everywhere", b: "To improve production efficiency, reduce downtime, enhance product quality and create long-term value through continuous innovation and dedicated after-sales support." },
       ].map((v, i) => (
-        <Reveal key={v.k} delay={i * 0.1} className="bg-[#F9FAFB] p-10 md:p-16">
-          <Overline color="text-[#FF3B30]">{v.k}</Overline>
+        <Reveal key={v.k} delay={i * 0.1} className="bg-[#ffffff] p-10 md:p-16">
+          <Overline color="text-[#fd0000]">{v.k}</Overline>
           <h4 className="font-display text-2xl md:text-3xl font-medium mt-6 mb-4 tracking-tight text-[#0A0A0A]">{v.t}</h4>
           <p className="text-[#525252] font-light leading-relaxed">{v.b}</p>
         </Reveal>

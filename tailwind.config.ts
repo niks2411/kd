@@ -14,13 +14,13 @@ const config: Config = {
         mono: ["IBM Plex Mono", "monospace"],
       },
       colors: {
-        klein: "#C5221F",
-        signal: "#FF3B30",
+        klein: "#fd0000",
+        signal: "#fd0000",
         ink: {
           DEFAULT: "#0A0A0A",
           soft: "#525252",
         },
-        paper: "#F9FAFB",
+        paper: "#ffffff",
         line: "#E5E7EB",
       },
     },

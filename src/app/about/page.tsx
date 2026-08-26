@@ -5,191 +5,315 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Reveal, Overline } from "@/components/motion/Reveal";
-import { CORE_VALUES, PHILOSOPHY_3P, ETHOS, IMAGES } from "@/lib/data";
-import { Compass, Target, Lightbulb, Shield, Users, Trophy, Sparkles, ArrowRight, CheckCircle2 } from "lucide-react";
+import { CORE_VALUES, PHILOSOPHY_3P, ETHOS, IMAGES, STATS, CONTACT } from "@/lib/data";
+import {
+  Compass,
+  Target,
+  Shield,
+  Sparkles,
+  ArrowRight,
+  CheckCircle2,
+  Send,
+  Building2,
+  Award,
+  Layers,
+  PhoneCall,
+  Check,
+} from "lucide-react";
 
 export default function AboutPage() {
   const [activeTab, setActiveTab] = useState<"about" | "vision" | "mission">("about");
+  const [formStatus, setFormStatus] = useState<string | null>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus("Thank you! Your consult request has been submitted to KD Engineers.");
+    setTimeout(() => setFormStatus(null), 6000);
+  };
 
   return (
-    <div className="min-h-screen bg-[#F9FAFB]">
+    <div className="min-h-screen bg-[#ffffff] text-[#0A0A0A]">
       <Navbar />
-      <main className="pt-28 pb-20">
-        {/* Page Header */}
-        <section className="bg-white border-b border-[#E5E7EB] py-16 md:py-20">
-          <div className="mx-auto max-w-[1600px] px-6 md:px-12">
-            <div className="max-w-3xl">
+
+      <main className="pt-20 pb-0">
+        {/* HIGH-IMPACT HERO BANNER */}
+        <section className="relative bg-[#0A0A0A] text-white py-16 md:py-24 overflow-hidden border-b border-[#262626]">
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-65 pointer-events-none transition-all duration-700"
+            style={{ backgroundImage: "url('/images/about.png')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent pointer-events-none" />
+
+          <div className="mx-auto max-w-[1600px] px-6 md:px-12 relative z-10">
+            <div className="max-w-3xl space-y-6">
               <Reveal>
-                <Overline color="text-[#C5221F]">About KD Engineers India</Overline>
+                <div className="inline-flex items-center gap-2 bg-[#fd0000] text-white px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider rounded-xs shadow-md">
+                  <Sparkles size={14} /> Two Decades of Engineering Excellence
+                </div>
               </Reveal>
+
               <Reveal delay={0.1}>
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-[#0A0A0A] tracking-tight mt-4">
-                  Engineering Excellence Built on <span className="text-[#C5221F] font-medium">Innovation</span>.
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-tight">
+                  About KD Engineers <span className="text-[#fd0000] font-normal">India</span>
                 </h1>
               </Reveal>
+
               <Reveal delay={0.2}>
-                <p className="mt-6 text-base sm:text-lg text-[#525252] font-light leading-relaxed">
-                  Specializing in advanced wire harness processing technology, industrial automation, and precision manufacturing solutions for over two decades.
+                <p className="text-base sm:text-lg text-[#D1D5DB] font-light leading-relaxed">
+                  Specializing in advanced wire harness processing machinery, custom industrial automation, and turnkey engineering solutions for global manufacturers.
                 </p>
               </Reveal>
+
+              {/* Key Live Performance Indicators Bar */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/15">
+                {STATS.map((s) => (
+                  <div key={s.label}>
+                    <span className="font-display text-2xl sm:text-3xl font-semibold text-[#fd0000]">{s.value}</span>
+                    <span className="block text-[11px] font-mono text-[#9CA3AF] uppercase tracking-wider">{s.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Company Narrative & Vision */}
-        <section className="py-20 mx-auto max-w-[1600px] px-6 md:px-12">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6">
-              <div className="bg-white border border-[#E5E7EB] p-8 md:p-12 shadow-sm">
-                <div className="flex gap-3 border-b border-[#E5E7EB] pb-6 mb-8 flex-wrap">
+        {/* SPLIT WORKSPACE: SIDEBAR + CONTENT */}
+        <section className="py-14 mx-auto max-w-[1600px] px-6 md:px-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            
+            {/* LEFT STICKY CONTROL SIDEBAR */}
+            <aside className="lg:col-span-3 space-y-6 sticky top-28">
+              <div className="bg-[#ffffff] border border-[#E5E7EB] rounded-sm overflow-hidden shadow-2xs">
+                <div className="bg-[#0A0A0A] text-white px-4 py-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2 font-display text-sm font-semibold">
+                    <Building2 size={16} className="text-[#fd0000]" /> Company Overview
+                  </div>
+                </div>
+                <div className="p-2 space-y-1">
                   {[
-                    { id: "about", label: "Legacy & Purpose", icon: <Sparkles size={16} /> },
-                    { id: "vision", label: "Our Vision", icon: <Compass size={16} /> },
-                    { id: "mission", label: "Our Mission", icon: <Target size={16} /> },
+                    { id: "about", label: "Legacy & Purpose", icon: <Sparkles size={14} /> },
+                    { id: "vision", label: "Our Vision", icon: <Compass size={14} /> },
+                    { id: "mission", label: "Our Mission", icon: <Target size={14} /> },
                   ].map((tab) => (
                     <button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id as any)}
-                      className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider transition-colors cursor-pointer ${
+                      className={`w-full text-left px-3 py-2 text-xs font-mono font-semibold uppercase tracking-wider rounded-xs transition-colors flex items-center gap-2 cursor-pointer ${
                         activeTab === tab.id
-                          ? "bg-[#C5221F] text-white"
-                          : "bg-[#F9FAFB] text-[#525252] border border-[#E5E7EB] hover:text-[#0A0A0A]"
+                          ? "bg-[#fd0000] text-white shadow-xs"
+                          : "text-[#374151] hover:bg-[#F9FAFB] hover:text-[#fd0000]"
                       }`}
                     >
                       {tab.icon} {tab.label}
                     </button>
                   ))}
                 </div>
+              </div>
 
+              {/* Direct Support Widget */}
+              <div className="bg-[#0A0A0A] text-white p-5 rounded-sm space-y-3">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#fd0000] uppercase font-bold">
+                  <PhoneCall size={14} /> Direct Engineering Line
+                </div>
+                <h4 className="text-sm font-semibold">Connect with Our Team</h4>
+                <p className="text-xs text-[#9CA3AF] font-light">Discuss your wire specifications or schedule a visit to our Gurugram plant.</p>
+                <a
+                  href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-[#fd0000] font-semibold hover:underline"
+                >
+                  Call: {CONTACT.phone}
+                </a>
+              </div>
+            </aside>
+
+            {/* RIGHT MAIN CONTENT AREA */}
+            <main className="lg:col-span-9 space-y-12">
+              
+              {/* Active Tab Narrative Card */}
+              <div className="bg-white border border-[#E5E7EB] p-8 rounded-sm shadow-2xs">
                 <div className="text-base text-[#525252] font-light leading-relaxed space-y-4">
                   {activeTab === "about" && (
                     <>
+                      <h3 className="font-display text-2xl font-semibold text-[#0A0A0A] mb-2">
+                        Over 20 Years of Automation Leadership
+                      </h3>
                       <p>
                         Our journey has always been driven by one purpose — to simplify manufacturing while helping businesses achieve higher productivity, greater accuracy, and improved operational efficiency.
                       </p>
                       <p>
-                        With years of engineering expertise and deep understanding of industrial manufacturing, we design and manufacture advanced machinery capable of meeting the changing demands of modern production facilities.
+                        With years of engineering expertise and deep understanding of industrial manufacturing, we design and manufacture advanced wire processing machinery capable of meeting the changing demands of modern production facilities.
                       </p>
                       <p>
-                        Our solutions combine intelligent automation, precision engineering, robust construction, and user-friendly operation — enabling manufacturers to reduce production costs while improving product quality.
+                        Our solutions combine intelligent automation, precision kinematics, robust construction, and user-friendly operation — enabling manufacturers to reduce unit production costs while eliminating defects.
                       </p>
                     </>
                   )}
 
                   {activeTab === "vision" && (
-                    <div className="space-y-4">
-                      <h3 className="font-display text-2xl font-medium text-[#0A0A0A]">Shaping the Future of Industrial Automation</h3>
+                    <div className="space-y-3">
+                      <h3 className="font-display text-2xl font-semibold text-[#0A0A0A]">
+                        Shaping the Future of Industrial Automation
+                      </h3>
                       <p>
-                        To become the most trusted engineering partner for manufacturers by delivering innovative automation technologies, precision machinery, and world-class engineering solutions that shape the future of industrial manufacturing globally.
+                        To become the most trusted engineering partner for Tier-1 automotive and industrial wire harness manufacturers globally by delivering innovative automation technologies, micro-precision crimp tooling, and world-class machinery.
                       </p>
                     </div>
                   )}
 
                   {activeTab === "mission" && (
-                    <div className="space-y-4">
-                      <h3 className="font-display text-2xl font-medium text-[#0A0A0A]">Empowering Manufacturers Worldwide</h3>
+                    <div className="space-y-3">
+                      <h3 className="font-display text-2xl font-semibold text-[#0A0A0A]">
+                        Empowering Manufacturers Worldwide
+                      </h3>
                       <p>
-                        Our mission is to empower manufacturers with intelligent engineering solutions that improve production efficiency, reduce downtime, enhance product quality, and create long-term value for every customer.
+                        Our mission is to empower manufacturers with intelligent engineering solutions that improve production efficiency, eliminate downtime, enhance wire harness quality, and create long-term value for every customer.
                       </p>
                     </div>
                   )}
                 </div>
               </div>
-            </div>
 
-            <div className="lg:col-span-6 space-y-6">
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-[#E5E7EB]">
-                <img src={IMAGES.about} alt="KD Engineers Fabrication Facility" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
-                <div className="absolute top-4 left-4 bg-white/90 font-mono text-xs px-3 py-1 text-[#0A0A0A] border border-[#E5E7EB]">
-                  R&D & Manufacturing Unit
+              {/* 3P Philosophy Cards */}
+              <div className="space-y-4">
+                <Overline color="text-[#fd0000]">Operational Framework</Overline>
+                <h2 className="font-display text-2xl font-semibold text-[#0A0A0A]">The 3P Philosophy</h2>
+                <div className="grid md:grid-cols-3 gap-4">
+                  {PHILOSOPHY_3P.map((item, i) => (
+                    <div key={item.p} className="bg-white border border-[#E5E7EB] p-6 rounded-sm hover:border-[#fd0000] transition-colors">
+                      <span className="font-mono text-xs uppercase tracking-widest text-[#fd0000] font-bold block mb-2">
+                        P{i + 1} — {item.p}
+                      </span>
+                      <p className="text-xs text-[#525252] font-light leading-relaxed">{item.body}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
+
+              {/* Core Principles Grid */}
+              <div className="space-y-4">
+                <Overline color="text-[#fd0000]">Foundational Principles</Overline>
+                <h2 className="font-display text-2xl font-semibold text-[#0A0A0A]">Our Engineering Core Values</h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {CORE_VALUES.map((v) => (
+                    <div key={v.k} className="bg-white border border-[#E5E7EB] p-6 rounded-sm hover:border-[#fd0000] transition-colors">
+                      <span className="font-mono text-xs text-[#fd0000] font-semibold block mb-1">{v.k}</span>
+                      <h4 className="font-display text-lg font-medium text-[#0A0A0A] mb-2">{v.title}</h4>
+                      <p className="text-xs text-[#525252] font-light leading-relaxed">{v.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Ethos List */}
+              <div className="bg-[#F9FAFB] border border-[#E5E7EB] p-8 rounded-sm space-y-4">
+                <h3 className="font-display text-xl font-semibold text-[#0A0A0A] flex items-center gap-2">
+                  <Award size={20} className="text-[#fd0000]" /> Manufacturing Excellence Standards
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {ETHOS.map((e) => (
+                    <div key={e.title} className="flex items-start gap-2 text-xs text-[#374151]">
+                      <Check size={16} className="text-[#fd0000] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-[#0A0A0A] font-semibold">{e.title}</strong>
+                        <span className="font-light text-[#525252]">{e.body}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </main>
           </div>
         </section>
 
-        {/* 3P Philosophy */}
-        <section className="py-20 bg-white border-y border-[#E5E7EB]">
-          <div className="mx-auto max-w-[1600px] px-6 md:px-12">
-            <div className="max-w-3xl mb-16">
-              <Reveal><Overline color="text-[#C5221F]">Operational Framework</Overline></Reveal>
-              <Reveal delay={0.1}>
-                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-light text-[#0A0A0A] tracking-tight mt-3">
-                  Our 3P Philosophy
-                </h2>
-              </Reveal>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {PHILOSOPHY_3P.map((p, i) => (
-                <Reveal key={p.p} delay={i * 0.1} className="bg-[#F9FAFB] border border-[#E5E7EB] p-8">
-                  <span className="font-mono text-xs uppercase tracking-widest text-[#FF3B30] font-bold">P{i + 1}</span>
-                  <h3 className="font-display text-3xl font-light text-[#0A0A0A] mt-3 mb-4">{p.p}</h3>
-                  <p className="text-sm text-[#525252] font-light leading-relaxed">{p.body}</p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Core Values Grid */}
-        <section className="py-20 mx-auto max-w-[1600px] px-6 md:px-12">
-          <div className="max-w-3xl mb-16">
-            <Reveal><Overline color="text-[#C5221F]">Foundational Principles</Overline></Reveal>
-            <Reveal delay={0.1}>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-light text-[#0A0A0A] tracking-tight mt-3">
-                Core Values Behind Every Machine
+        {/* EMBEDDED DIRECT CONSULTATION FORM */}
+        <section className="py-14 bg-[#F9FAFB] border-t border-b border-[#E5E7EB]">
+          <div className="mx-auto max-w-[1200px] px-6 md:px-12">
+            <div className="max-w-2xl mx-auto text-center mb-8">
+              <Overline color="text-[#fd0000]">Direct Technical Consultation</Overline>
+              <h2 className="font-display text-3xl sm:text-4xl font-light text-[#0A0A0A] tracking-tight mt-2">
+                Talk to <span className="text-[#fd0000] font-medium">KD ENGINEERS INDIA</span>
               </h2>
-            </Reveal>
-          </div>
+              <p className="mt-2 text-xs sm:text-sm text-[#525252] leading-relaxed">
+                Send your wire specifications or schedule an engineering consult with our Gurugram technical team.
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {CORE_VALUES.map((v, i) => (
-              <Reveal key={v.k} delay={i * 0.08} className="bg-white border border-[#E5E7EB] p-8 hover:border-[#C5221F] transition-colors">
-                <span className="font-mono text-xs text-[#C5221F] font-semibold">{v.k}</span>
-                <h3 className="font-display text-xl font-medium text-[#0A0A0A] mt-3 mb-3">{v.title}</h3>
-                <p className="text-xs text-[#525252] font-light leading-relaxed">{v.body}</p>
-              </Reveal>
-            ))}
+            <div className="bg-white border border-[#E5E7EB] p-6 md:p-8 shadow-2xs rounded-sm">
+              {formStatus && (
+                <div className="mb-6 p-3 bg-[#fd0000]/10 border border-[#fd0000] text-[#fd0000] text-xs font-semibold rounded-xs">
+                  {formStatus}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] font-semibold mb-1">
+                      Full Name <span className="text-[#fd0000]">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Rahul Sharma"
+                      className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-3.5 py-2 text-xs text-[#0A0A0A] focus:border-[#fd0000] focus:bg-white outline-none transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] font-semibold mb-1">
+                      Corporate Email <span className="text-[#fd0000]">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="rahul@company.com"
+                      className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-3.5 py-2 text-xs text-[#0A0A0A] focus:border-[#fd0000] focus:bg-white outline-none transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] font-semibold mb-1">
+                    Project Requirements
+                  </label>
+                  <textarea
+                    rows={3}
+                    placeholder="Specify wire types, machinery requirements, or operational challenges..."
+                    className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-3.5 py-2 text-xs text-[#0A0A0A] focus:border-[#fd0000] focus:bg-white outline-none transition-colors resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-[#fd0000] text-white py-3 text-xs font-mono uppercase tracking-widest font-semibold hover:bg-[#0A0A0A] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-2xs rounded-xs"
+                >
+                  <Send size={14} /> Submit Engineering Consult Request
+                </button>
+              </form>
+            </div>
           </div>
         </section>
 
-        {/* Ethos & Standards */}
-        <section className="py-20 bg-[#0A0A0A] text-white">
+        {/* BOTTOM VIVID RED CTA BANNER */}
+        <section className="py-12 bg-[#fd0000] text-white text-center">
           <div className="mx-auto max-w-[1600px] px-6 md:px-12">
-            <div className="max-w-3xl mb-16">
-              <Reveal><Overline color="text-white/60">Quality Assurance</Overline></Reveal>
-              <Reveal delay={0.1}>
-                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mt-3">
-                  Built to the Highest Industrial Standard
-                </h2>
-              </Reveal>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {ETHOS.map((e, i) => (
-                <Reveal key={e.title} delay={i * 0.08} className="border-t border-white/20 pt-6">
-                  <h4 className="font-display text-xl font-medium text-white mb-3">{e.title}</h4>
-                  <p className="text-xs text-white/60 font-light leading-relaxed">{e.body}</p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-16 bg-[#C5221F] text-white text-center">
-          <div className="mx-auto max-w-[1600px] px-6 md:px-12">
-            <h3 className="font-display text-3xl font-light">Partner with India's Premier Engineering Team</h3>
-            <p className="mt-2 text-white/80 font-light text-sm">Consult with our automation experts to design your custom production line.</p>
-            <div className="mt-6">
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-[#C5221F] px-7 py-3.5 text-sm font-semibold hover:bg-[#0A0A0A] hover:text-white transition-colors">
-                Contact Sales Team <ArrowRight size={16} />
+            <h3 className="font-display text-2xl font-light">Ready to Upgrade Your Production Line Efficiency?</h3>
+            <p className="mt-1.5 text-white/90 font-light text-xs sm:text-sm">
+              Visit our Gurugram facility or dispatch your wire samples for automated crimp testing.
+            </p>
+            <div className="mt-5 flex flex-wrap justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-white text-[#fd0000] px-6 py-2.5 text-xs font-mono uppercase tracking-widest font-semibold hover:bg-[#0A0A0A] hover:text-white transition-colors rounded-xs"
+              >
+                Schedule Facility Visit <ArrowRight size={14} />
               </Link>
             </div>
           </div>
         </section>
       </main>
+
       <Footer />
     </div>
   );

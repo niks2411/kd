@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="grain antialiased bg-[#F9FAFB] text-[#0A0A0A]">
+      <body className="grain antialiased bg-[#ffffff] text-[#0A0A0A]">
         <SmoothScroll>
           {children}
           <Toaster position="bottom-right" />

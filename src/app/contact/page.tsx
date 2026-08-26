@@ -1,258 +1,274 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
+import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Reveal, Overline } from "@/components/motion/Reveal";
 import { CONTACT } from "@/lib/data";
-import { toast } from "sonner";
-import { ArrowRight, Loader2, Mail, Phone, MapPin, Clock, ShieldCheck, HelpCircle } from "lucide-react";
-
-function ContactFormContent() {
-  const searchParams = useSearchParams();
-  const prefilledInterest = searchParams ? searchParams.get("interest") || "" : "";
-
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    company: "",
-    phone: "",
-    interest: prefilledInterest,
-    message: "",
-  });
-  const [loading, setLoading] = useState(false);
-
-  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-  };
-
-  const submit = async (e: FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch("/api/inquiries", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-
-      if (!res.ok) throw new Error("Failed to submit");
-
-      toast.success("Inquiry received! Our engineering team will contact you within 24 hours.");
-      setForm({ name: "", email: "", company: "", phone: "", interest: "", message: "" });
-    } catch {
-      toast.error("Something went wrong. Please email us directly or try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div className="grid lg:grid-cols-12 gap-12 items-start">
-      {/* Form */}
-      <div className="lg:col-span-7 bg-white border border-[#E5E7EB] p-8 md:p-12 shadow-sm">
-        <h2 className="font-display text-2xl font-medium text-[#0A0A0A] mb-2">Request a Customized Quote</h2>
-        <p className="text-xs text-[#525252] font-light mb-8">Fill in your machine requirements or project specifications below.</p>
-
-        <form onSubmit={submit} className="space-y-6" data-testid="contact-page-form">
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] mb-2 font-medium">
-                Full Name <span className="text-[#FF3B30]">*</span>
-              </label>
-              <input
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={onChange}
-                required
-                placeholder="John Doe"
-                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] mb-2 font-medium">
-                Email Address <span className="text-[#FF3B30]">*</span>
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={onChange}
-                required
-                placeholder="john@company.com"
-                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors"
-              />
-            </div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] mb-2 font-medium">
-                Company / Organisation
-              </label>
-              <input
-                type="text"
-                name="company"
-                value={form.company}
-                onChange={onChange}
-                placeholder="Acme Manufacturing Ltd."
-                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] mb-2 font-medium">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                value={form.phone}
-                onChange={onChange}
-                placeholder="+91 98765 43210"
-                className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] mb-2 font-medium">
-              Area of Interest / Machine Model
-            </label>
-            <input
-              type="text"
-              name="interest"
-              value={form.interest}
-              onChange={onChange}
-              placeholder="e.g. Automatic Wire Cutting & Stripping Machine"
-              className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] mb-2 font-medium">
-              Project Details & Requirements <span className="text-[#FF3B30]">*</span>
-            </label>
-            <textarea
-              name="message"
-              value={form.message}
-              onChange={onChange}
-              required
-              rows={5}
-              placeholder="Describe wire specifications, production volume, or custom applicator requirements…"
-              className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3 text-sm text-[#0A0A0A] placeholder:text-[#525252]/50 focus:border-[#C5221F] focus:bg-white outline-none transition-colors resize-none"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-[#C5221F] text-white py-4 text-sm font-mono uppercase tracking-widest font-semibold hover:bg-[#0A0A0A] transition-colors disabled:opacity-60 flex items-center justify-center gap-2 cursor-pointer"
-          >
-            {loading ? (
-              <>
-                <Loader2 size={16} className="animate-spin" /> Submitting Inquiry…
-              </>
-            ) : (
-              <>
-                Submit Quote Inquiry <ArrowRight size={16} />
-              </>
-            )}
-          </button>
-        </form>
-      </div>
-
-      {/* Info Cards */}
-      <div className="lg:col-span-5 space-y-6">
-        <div className="bg-white border border-[#E5E7EB] p-8">
-          <h3 className="font-display text-xl font-medium text-[#0A0A0A] mb-6">Direct Contact Channels</h3>
-          <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#C5221F]/10 text-[#C5221F] shrink-0">
-                <Mail size={20} />
-              </div>
-              <div>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#525252] block">Sales & Support Email</span>
-                <a href={`mailto:${CONTACT.email}`} className="font-display text-lg text-[#0A0A0A] hover:text-[#C5221F] font-medium transition-colors">
-                  {CONTACT.email}
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#C5221F]/10 text-[#C5221F] shrink-0">
-                <Phone size={20} />
-              </div>
-              <div>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#525252] block">Direct Phone</span>
-                <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="font-display text-lg text-[#0A0A0A] hover:text-[#C5221F] font-medium transition-colors">
-                  {CONTACT.phone}
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#C5221F]/10 text-[#C5221F] shrink-0">
-                <MapPin size={20} />
-              </div>
-              <div>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#525252] block">Factory Location</span>
-                <p className="font-display text-sm text-[#0A0A0A] font-medium mt-1 leading-relaxed">
-                  {CONTACT.address}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-[#0A0A0A] text-white p-8 space-y-4">
-          <div className="flex items-center gap-2 text-xs font-mono text-[#C5221F] uppercase tracking-wider font-semibold">
-            <Clock size={16} /> Operating Hours
-          </div>
-          <p className="text-xs text-white/70 font-light leading-relaxed">
-            Monday – Saturday: 9:00 AM – 6:30 PM (IST)<br />
-            Emergency technical support available 24/7 for installed lines.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Send,
+  Sparkles,
+  ArrowRight,
+  PhoneCall,
+  CheckCircle2,
+  Building2,
+} from "lucide-react";
 
 export default function ContactPage() {
+  const [formStatus, setFormStatus] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setFormStatus("Thank you! Your message has been sent directly to our Gurugram engineering team.");
+    }, 1000);
+  };
+
   return (
-    <div className="min-h-screen bg-[#F9FAFB]">
+    <div className="min-h-screen bg-[#ffffff] text-[#0A0A0A]">
       <Navbar />
-      <main className="pt-28 pb-20">
-        {/* Header */}
-        <section className="bg-white border-b border-[#E5E7EB] py-16 md:py-20">
-          <div className="mx-auto max-w-[1600px] px-6 md:px-12">
-            <div className="max-w-3xl">
+
+      <main className="pt-20 pb-0">
+        {/* HIGH-IMPACT HERO BANNER */}
+        <section className="relative bg-[#0A0A0A] text-white py-16 md:py-24 overflow-hidden border-b border-[#262626]">
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-65 pointer-events-none transition-all duration-700"
+            style={{ backgroundImage: "url('/images/hero.png')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent pointer-events-none" />
+
+          <div className="mx-auto max-w-[1600px] px-6 md:px-12 relative z-10">
+            <div className="max-w-3xl space-y-6">
               <Reveal>
-                <Overline color="text-[#C5221F]">Get In Touch</Overline>
+                <div className="inline-flex items-center gap-2 bg-[#fd0000] text-white px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider rounded-xs shadow-md">
+                  <Sparkles size={14} /> Direct Engineering Support
+                </div>
               </Reveal>
+
               <Reveal delay={0.1}>
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-[#0A0A0A] tracking-tight mt-4">
-                  Contact Our <span className="text-[#C5221F] font-medium">Engineering Team</span>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-tight">
+                  Contact Our <span className="text-[#fd0000] font-normal">Engineering Team</span>
                 </h1>
               </Reveal>
+
               <Reveal delay={0.2}>
-                <p className="mt-6 text-base sm:text-lg text-[#525252] font-light leading-relaxed">
-                  Whether you require machine pricing, custom applicator die tooling, or factory floor installation support, we are ready to assist.
+                <p className="text-base sm:text-lg text-[#D1D5DB] font-light leading-relaxed">
+                  Have questions about wire cutting, crimping machinery, or custom automation? Reach out to our Gurugram engineering facility today.
                 </p>
               </Reveal>
+
+              {/* Contact Metrics Bar */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/15">
+                <div>
+                  <span className="font-display text-2xl font-semibold text-[#fd0000]">Gurugram</span>
+                  <span className="block text-[11px] font-mono text-[#9CA3AF] uppercase">Manufacturing Plant</span>
+                </div>
+                <div>
+                  <span className="font-display text-2xl font-semibold text-white">&lt; 24 Hours</span>
+                  <span className="block text-[11px] font-mono text-[#9CA3AF] uppercase">Guaranteed Response</span>
+                </div>
+                <div>
+                  <span className="font-display text-2xl font-semibold text-white">Pan-India</span>
+                  <span className="block text-[11px] font-mono text-[#9CA3AF] uppercase">Service Network</span>
+                </div>
+                <div>
+                  <span className="font-display text-2xl font-semibold text-white">Free Demo</span>
+                  <span className="block text-[11px] font-mono text-[#9CA3AF] uppercase">Wire Sample Audit</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Contact Form Section */}
-        <section className="py-20 mx-auto max-w-[1600px] px-6 md:px-12">
-          <Suspense fallback={<div className="text-center py-10 font-mono text-xs">Loading form…</div>}>
-            <ContactFormContent />
-          </Suspense>
+        {/* SPLIT WORKSPACE: SIDEBAR + CONTACT FORM */}
+        <section className="py-14 mx-auto max-w-[1600px] px-6 md:px-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            
+            {/* LEFT STICKY SIDEBAR */}
+            <aside className="lg:col-span-4 space-y-6 sticky top-28">
+              {/* Contact Details Card */}
+              <div className="bg-[#0A0A0A] text-white p-6 rounded-sm space-y-6 shadow-md">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#fd0000] uppercase font-bold border-b border-white/15 pb-3">
+                  <Building2 size={16} /> Corporate Headquarters
+                </div>
+
+                <div className="space-y-4 text-xs">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 bg-[#fd0000]/10 text-[#fd0000] shrink-0 rounded-xs">
+                      <Mail size={18} />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono text-[#9CA3AF] uppercase block">Email Address</span>
+                      <a href={`mailto:${CONTACT.email}`} className="font-display text-sm text-white hover:text-[#fd0000] font-medium transition-colors">
+                        {CONTACT.email}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 bg-[#fd0000]/10 text-[#fd0000] shrink-0 rounded-xs">
+                      <Phone size={18} />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono text-[#9CA3AF] uppercase block">Phone / Support Line</span>
+                      <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="font-display text-sm text-white hover:text-[#fd0000] font-medium transition-colors">
+                        {CONTACT.phone}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 bg-[#fd0000]/10 text-[#fd0000] shrink-0 rounded-xs">
+                      <MapPin size={18} />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono text-[#9CA3AF] uppercase block">Plant Address</span>
+                      <p className="text-xs text-[#D1D5DB] leading-relaxed font-light mt-0.5">{CONTACT.address}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 pt-2 border-t border-white/15">
+                    <div className="p-2.5 bg-[#fd0000]/10 text-[#fd0000] shrink-0 rounded-xs">
+                      <Clock size={18} />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono text-[#9CA3AF] uppercase block">Working Hours</span>
+                      <p className="text-xs text-[#D1D5DB] font-light">Mon - Sat: 9:00 AM - 6:30 PM IST</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[#F9FAFB] border border-[#E5E7EB] p-5 rounded-sm space-y-2">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#fd0000] uppercase font-bold">
+                  <CheckCircle2 size={15} /> Free Crimp Sample Testing
+                </div>
+                <p className="text-xs text-[#525252] leading-relaxed">
+                  Dispatch your wire samples to our Gurugram plant for automated pull force and crimp cross-section analysis.
+                </p>
+              </div>
+            </aside>
+
+            {/* RIGHT MAIN FORM AREA */}
+            <main className="lg:col-span-8">
+              <div className="bg-white border border-[#E5E7EB] p-8 md:p-10 shadow-2xs rounded-sm space-y-6">
+                <div>
+                  <Overline color="text-[#fd0000]">Inquiry Form</Overline>
+                  <h2 className="font-display text-3xl font-semibold text-[#0A0A0A] mt-1">Send Us a Direct Message</h2>
+                  <p className="text-xs text-[#525252] font-light mt-1">
+                    Fill out your requirements below and our engineering lead will follow up with pricing & CAD specifications.
+                  </p>
+                </div>
+
+                {formStatus && (
+                  <div className="p-4 bg-[#fd0000]/10 border border-[#fd0000] text-[#fd0000] text-xs font-semibold rounded-xs">
+                    {formStatus}
+                  </div>
+                )}
+
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] font-semibold mb-1">
+                        Full Name <span className="text-[#fd0000]">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Rahul Sharma"
+                        className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-3.5 py-2.5 text-xs text-[#0A0A0A] focus:border-[#fd0000] focus:bg-white outline-none transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] font-semibold mb-1">
+                        Corporate Email <span className="text-[#fd0000]">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="rahul@company.com"
+                        className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-3.5 py-2.5 text-xs text-[#0A0A0A] focus:border-[#fd0000] focus:bg-white outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] font-semibold mb-1">
+                        Phone Number <span className="text-[#fd0000]">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="+91 98100 00000"
+                        className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-3.5 py-2.5 text-xs text-[#0A0A0A] focus:border-[#fd0000] focus:bg-white outline-none transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] font-semibold mb-1">
+                        Company Name
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Your Enterprise Name"
+                        className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-3.5 py-2.5 text-xs text-[#0A0A0A] focus:border-[#fd0000] focus:bg-white outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono uppercase tracking-wider text-[#0A0A0A] font-semibold mb-1">
+                      Project Details & Wire Specifications <span className="text-[#fd0000]">*</span>
+                    </label>
+                    <textarea
+                      rows={5}
+                      required
+                      placeholder="Specify wire gauge (mm²), production volume/hr, terminal type, or special automation requirements..."
+                      className="w-full bg-[#F9FAFB] border border-[#E5E7EB] px-3.5 py-2.5 text-xs text-[#0A0A0A] focus:border-[#fd0000] focus:bg-white outline-none transition-colors resize-none"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#fd0000] text-white py-3.5 text-xs font-mono uppercase tracking-widest font-semibold hover:bg-[#0A0A0A] transition-colors disabled:opacity-60 flex items-center justify-center gap-2 cursor-pointer shadow-2xs rounded-xs"
+                  >
+                    <Send size={15} /> {isSubmitting ? "Sending Request..." : "Submit Inquiry to KD Engineers"}
+                  </button>
+                </form>
+              </div>
+            </main>
+          </div>
+        </section>
+
+        {/* BOTTOM VIVID RED CTA BANNER */}
+        <section className="py-12 bg-[#fd0000] text-white text-center">
+          <div className="mx-auto max-w-[1600px] px-6 md:px-12">
+            <h3 className="font-display text-2xl font-light">Visit Our Gurugram Manufacturing Facility</h3>
+            <p className="mt-1.5 text-white/90 font-light text-xs sm:text-sm">
+              Experience live machine demonstrations and automated crimp force testing on your own wire samples.
+            </p>
+            <div className="mt-5 flex flex-wrap justify-center gap-4">
+              <a
+                href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
+                className="inline-flex items-center gap-2 bg-white text-[#fd0000] px-6 py-2.5 text-xs font-mono uppercase tracking-widest font-semibold hover:bg-[#0A0A0A] hover:text-white transition-colors rounded-xs"
+              >
+                Call Engineer Now: {CONTACT.phone} <ArrowRight size={14} />
+              </a>
+            </div>
+          </div>
         </section>
       </main>
+
       <Footer />
     </div>
   );

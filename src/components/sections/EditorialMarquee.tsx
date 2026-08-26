@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 const ITEMS = ["Manufacturing Excellence", "Intelligent Automation", "Precision Engineering", "Reliable Technology"];
 
 export const EditorialMarquee = () => (
-  <section className="py-12 md:py-16 border-y border-[#E5E7EB] bg-[#F9FAFB] overflow-hidden" data-testid="marquee">
+  <section className="py-12 md:py-16 border-y border-[#E5E7EB] bg-[#ffffff] overflow-hidden" data-testid="marquee">
     <Marquee speed={45} gradient={false} autoFill>
       {ITEMS.map((t, i) => (
         <span key={i} className="flex items-center">

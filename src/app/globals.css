@@ -6,21 +6,21 @@
   --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
-  --color-klein: #C5221F;
-  --color-signal: #FF3B30;
+  --color-klein: #fd0000;
+  --color-signal: #fd0000;
   --color-ink: #0A0A0A;
   --color-ink-soft: #525252;
-  --color-paper: #F9FAFB;
+  --color-paper: #ffffff;
   --color-line: #E5E7EB;
 }
 
 :root {
-  --background: #F9FAFB;
+  --background: #ffffff;
   --surface: #FFFFFF;
   --ink: #0A0A0A;
   --ink-soft: #525252;
-  --klein: #C5221F;
-  --signal: #FF3B30;
+  --klein: #fd0000;
+  --signal: #fd0000;
   --line: #E5E7EB;
 }
 
