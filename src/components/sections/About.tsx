@@ -31,28 +31,32 @@ const Chapter = ({ n, tagline, title, highlight, children, img, flip }: ChapterP
         </div>
       </div>
       <div className={`lg:col-span-6 ${flip ? "lg:order-1" : ""}`}>
-        <div className="relative space-y-4">
-          <span className="font-display text-[8rem] sm:text-[9rem] leading-none font-extralight text-[#E5E7EB] absolute -top-24 -left-4 select-none pointer-events-none">{n}</span>
+        <div className="relative pt-10">
+          <span className="font-display text-[8rem] sm:text-[9rem] leading-none font-extralight text-[#F3F4F6] absolute -top-12 -left-4 select-none pointer-events-none z-0">
+            {n}
+          </span>
           
-          <Reveal>
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#fd0000] block">
-              {tagline}
-            </span>
-          </Reveal>
+          <div className="relative z-10 space-y-4">
+            <Reveal>
+              <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#fd0000] block">
+                {tagline}
+              </span>
+            </Reveal>
 
-          <Reveal delay={0.1}>
-            <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-[#0A0A0A] leading-tight">{title}</h3>
-          </Reveal>
+            <Reveal delay={0.1}>
+              <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-[#0A0A0A] leading-tight">{title}</h3>
+            </Reveal>
 
-          <Reveal delay={0.2}>
-            <div className="space-y-4 text-[#525252] font-light leading-relaxed text-base md:text-lg max-w-xl">{children}</div>
-          </Reveal>
+            <Reveal delay={0.2}>
+              <div className="space-y-4 text-[#525252] font-light leading-relaxed text-base md:text-lg max-w-xl">{children}</div>
+            </Reveal>
 
-          <Reveal delay={0.3}>
-            <div className="inline-block pt-2 border-l-2 border-[#fd0000] pl-3 font-mono text-xs font-semibold text-[#0A0A0A] uppercase tracking-wider">
-              {highlight}
-            </div>
-          </Reveal>
+            <Reveal delay={0.3}>
+              <div className="inline-block pt-2 border-l-2 border-[#fd0000] pl-3 font-mono text-xs font-semibold text-[#0A0A0A] uppercase tracking-wider">
+                {highlight}
+              </div>
+            </Reveal>
+          </div>
         </div>
       </div>
     </div>
