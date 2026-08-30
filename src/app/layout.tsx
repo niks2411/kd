@@ -15,9 +15,11 @@ export const metadata: Metadata = {
     "KD Engineers",
   ],
   icons: {
-    icon: "/faviconn.png",
-    shortcut: "/faviconn.png",
-    apple: "/faviconn.png",
+    icon: [
+      { url: "/favicon.png?v=5", type: "image/png" },
+    ],
+    shortcut: "/favicon.png?v=5",
+    apple: "/favicon.png?v=5",
   },
 };
 
