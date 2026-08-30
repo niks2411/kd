@@ -15,12 +15,21 @@ export const Hero = () => {
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-44 pb-12 bg-[#ffffff]" data-testid="hero">
-      {/* Parallax hero background image constrained strictly to right 44% */}
-      <motion.div style={{ y, scale }} className="absolute top-0 right-0 h-full w-full lg:w-[44%] overflow-hidden">
-        <img src={IMAGES.hero} alt="Precision engineering" className="h-full w-full object-cover grayscale" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#ffffff] via-[#ffffff]/50 lg:via-[#ffffff]/20 to-transparent" />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(120% 80% at 70% 40%, transparent 40%, rgba(10,10,10,0.2) 100%)" }} />
+    <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-44 pb-12 bg-[#0A0A0A]" data-testid="hero">
+      {/* Full width hero background video */}
+      <motion.div style={{ y, scale }} className="absolute inset-0 h-full w-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="h-full w-full object-cover"
+        >
+          <source src="/video.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay for text contrast */}
+        <div className="absolute inset-0" style={{ background: "rgba(0, 0, 0, 0.45)" }} />
       </motion.div>
 
       <div className="relative z-10 mx-auto max-w-[1600px] w-full px-6 md:px-12">
@@ -29,7 +38,7 @@ export const Hero = () => {
 
           {/* Refined headline scale & clean line block hierarchy */}
           <div className="max-w-full lg:max-w-[54%]">
-            <h1 className="font-display uppercase font-medium tracking-tight leading-[1.02] text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-[#0A0A0A]">
+            <h1 className="font-display uppercase font-medium tracking-tight leading-[1.02] text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-white">
               <MaskLine delay={0.25}>KD</MaskLine>
               <MaskLine delay={0.4}>ENGINEERS</MaskLine>
               <MaskLine delay={0.55} className="text-[#fd0000]">the Future of</MaskLine>
@@ -43,10 +52,10 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.9 }}
-              className="lg:col-span-6 text-sm sm:text-base md:text-lg font-light leading-relaxed text-[#525252] max-w-xl"
+              className="lg:col-span-6 text-sm sm:text-base md:text-lg font-light leading-relaxed text-white/80 max-w-xl"
             >
               KD Engineers delivers advanced wire processing machines, wiring harness assembly systems, testing solutions, and customized industrial automation for manufacturers who demand higher productivity, consistent quality, and scalable production.
-              <span className="block mt-2 font-medium text-[#0A0A0A]">
+              <span className="block mt-2 font-medium text-white">
                 From Wire to Finished Harness — We Engineer the Complete Process.
               </span>
             </motion.p>
@@ -60,7 +69,7 @@ export const Hero = () => {
               <Link
                 href="/products"
                 data-testid="hero-explore-btn"
-                className="group inline-flex items-center gap-3 bg-[#0A0A0A] text-white px-7 py-4 text-sm font-medium hover:bg-[#fd0000] transition-colors duration-300 shadow-sm"
+                className="group inline-flex items-center gap-3 bg-white text-[#0A0A0A] px-7 py-4 text-sm font-medium hover:bg-[#fd0000] hover:text-white transition-colors duration-300 shadow-sm"
               >
                 Explore Our Solutions
                 <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -68,7 +77,7 @@ export const Hero = () => {
               <Link
                 href="/contact"
                 data-testid="hero-quote-btn"
-                className="group inline-flex items-center gap-3 border border-[#0A0A0A] text-[#0A0A0A] px-7 py-4 text-sm font-medium hover:bg-[#0A0A0A] hover:text-white transition-colors duration-300"
+                className="group inline-flex items-center gap-3 border border-white text-white px-7 py-4 text-sm font-medium hover:bg-white hover:text-[#0A0A0A] transition-colors duration-300"
               >
                 Request a Quote
               </Link>
@@ -80,7 +89,7 @@ export const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4 }}
-            className="mt-12 hidden md:flex flex-wrap gap-x-8 gap-y-2 border-t border-[#E5E7EB] pt-6 font-mono text-xs uppercase tracking-[0.18em] text-[#525252]"
+            className="mt-12 hidden md:flex flex-wrap gap-x-8 gap-y-2 border-t border-white/20 pt-6 font-mono text-xs uppercase tracking-[0.18em] text-white/70"
           >
             {PROMISES.map((p) => (
               <li key={p} className="flex items-center gap-2"><span className="h-1.5 w-1.5 bg-[#fd0000]" />{p}</li>
@@ -89,7 +98,7 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6 }} className="absolute bottom-6 right-6 md:right-12 z-10 flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#525252]">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6 }} className="absolute bottom-6 right-6 md:right-12 z-10 flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white/60">
         Scroll <ArrowDown size={14} className="animate-bounce" />
       </motion.div>
     </section>

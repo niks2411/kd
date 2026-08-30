@@ -40,20 +40,18 @@ export const Navbar = () => {
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-[#E5E7EB] shadow-xs transition-all duration-300 ${
-          scrolled || productsHovered ? "py-2.5" : "py-3.5"
-        }`}
+        className="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-[#E5E7EB] shadow-xs py-0 my-0 transition-all duration-300"
         data-testid="navbar"
       >
-        <div className="mx-auto max-w-[1600px] px-6 md:px-12 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group" data-testid="logo-btn">
-            <img src="/logo without bg.jpg.jpeg" alt="KD Engineers India" className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105" />
-            <div className="flex flex-col justify-center">
-              <span className="font-display font-bold tracking-tight text-sm sm:text-base text-[#0A0A0A] leading-tight">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-12 flex items-center justify-between py-0 my-0">
+          <Link href="/" className="flex items-center gap-3.5 group py-0 my-0" data-testid="logo-btn">
+            <img src="/logo without bg.jpg.jpeg" alt="KD Engineers India" className="h-20 sm:h-28 w-auto object-contain my-0 py-0 transition-transform group-hover:scale-105" />
+            <div className="flex flex-col justify-center my-0 py-0">
+              <span className="font-display font-bold tracking-tight text-lg sm:text-xl text-[#0A0A0A] leading-tight">
                 KD ENGINEERS INDIA PVT. LTD.
               </span>
-              <span className="text-[9px] sm:text-[10px] font-mono font-semibold tracking-wider text-[#fd0000] uppercase mt-0.5">
-                ( SIMPLIFYING WIRING HARNESS MAKING )
+              <span className="text-[10px] sm:text-[11px] font-mono font-semibold tracking-wider text-[#fd0000] uppercase mt-0.5">
+                SIMPLIFYING WIRING HARNESS MAKING
               </span>
             </div>
           </Link>
@@ -73,19 +71,17 @@ export const Navbar = () => {
                   <Link
                     href={l.href}
                     data-testid={`nav-${l.label.toLowerCase()}`}
-                    className={`text-sm font-medium tracking-wide transition-colors py-1 relative flex items-center gap-1 ${
-                      isActive || (isProducts && productsHovered)
+                    className={`text-sm font-medium tracking-wide transition-colors py-1 relative flex items-center gap-1 ${isActive || (isProducts && productsHovered)
                         ? "text-[#fd0000] font-semibold"
                         : "text-[#0A0A0A] hover:text-[#fd0000]"
-                    }`}
+                      }`}
                   >
                     {l.label}
                     {isProducts && (
                       <ChevronDown
                         size={14}
-                        className={`transition-transform duration-200 ${
-                          productsHovered ? "rotate-180 text-[#fd0000]" : ""
-                        }`}
+                        className={`transition-transform duration-200 ${productsHovered ? "rotate-180 text-[#fd0000]" : ""
+                          }`}
                       />
                     )}
                     {isActive && (
@@ -136,9 +132,8 @@ export const Navbar = () => {
                                       {item.subItems && (
                                         <ChevronDown
                                           size={15}
-                                          className={`text-[#4B5563] group-hover:text-[#fd0000] transition-transform ${
-                                            expandedSub === item.label ? "-rotate-90 text-[#fd0000]" : ""
-                                          }`}
+                                          className={`text-[#4B5563] group-hover:text-[#fd0000] transition-transform ${expandedSub === item.label ? "-rotate-90 text-[#fd0000]" : ""
+                                            }`}
                                         />
                                       )}
                                     </div>
@@ -187,9 +182,8 @@ export const Navbar = () => {
                                       {item.subItems && (
                                         <ChevronDown
                                           size={15}
-                                          className={`text-[#4B5563] group-hover:text-[#fd0000] transition-transform ${
-                                            expandedSub === item.label ? "-rotate-90 text-[#fd0000]" : ""
-                                          }`}
+                                          className={`text-[#4B5563] group-hover:text-[#fd0000] transition-transform ${expandedSub === item.label ? "-rotate-90 text-[#fd0000]" : ""
+                                            }`}
                                         />
                                       )}
                                     </div>
@@ -291,9 +285,8 @@ export const Navbar = () => {
                           onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
                         >
                           <span
-                            className={`font-display text-3xl font-light tracking-tight ${
-                              pathname === l.href ? "text-[#fd0000] font-normal" : "text-[#0A0A0A]"
-                            }`}
+                            className={`font-display text-3xl font-light tracking-tight ${pathname === l.href ? "text-[#fd0000] font-normal" : "text-[#0A0A0A]"
+                              }`}
                           >
                             {l.label}
                           </span>
@@ -325,9 +318,8 @@ export const Navbar = () => {
                       <Link
                         href={l.href}
                         onClick={() => setOpen(false)}
-                        className={`block font-display text-3xl font-light tracking-tight py-3 border-b border-[#E5E7EB] ${
-                          pathname === l.href ? "text-[#fd0000] font-normal" : "text-[#0A0A0A]"
-                        }`}
+                        className={`block font-display text-3xl font-light tracking-tight py-3 border-b border-[#E5E7EB] ${pathname === l.href ? "text-[#fd0000] font-normal" : "text-[#0A0A0A]"
+                          }`}
                       >
                         {l.label}
                       </Link>

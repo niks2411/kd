@@ -16,7 +16,7 @@ export const EditorialMarquee = () => (
     <Marquee speed={45} gradient={false} autoFill>
       {ITEMS.map((t, i) => (
         <span key={i} className="flex items-center">
-          <span className="font-display uppercase font-medium tracking-tighter text-3xl md:text-5xl px-6 text-outline">
+          <span className="font-sans uppercase font-bold tracking-wider text-xl md:text-3xl px-6 text-[#0A0A0A]">
             {t}
           </span>
           <span className="h-2 w-2 rounded-full bg-[#fd0000] mx-3" />
