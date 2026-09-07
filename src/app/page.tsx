@@ -4,6 +4,8 @@ import { EditorialMarquee } from "@/components/sections/EditorialMarquee";
 import { About } from "@/components/sections/About";
 import { Values } from "@/components/sections/Values";
 import { Products } from "@/components/sections/Products";
+import { VideoShowcase } from "@/components/sections/VideoShowcase";
+import { ReelsShowcase } from "@/components/sections/ReelsShowcase";
 import { Industries } from "@/components/sections/Industries";
 import { Process } from "@/components/sections/Process";
 import { Ethos } from "@/components/sections/Ethos";
@@ -18,6 +20,8 @@ export default function Home() {
         <Hero />
         <EditorialMarquee />
         <About />
+        <VideoShowcase />
+        <ReelsShowcase />
         <Values />
         <Products />
         <Industries />

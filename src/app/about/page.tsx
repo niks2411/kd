@@ -153,10 +153,10 @@ export default function AboutPage() {
                   {activeTab === "vision" && (
                     <div className="space-y-3">
                       <h3 className="font-display text-2xl font-semibold text-[#0A0A0A]">
-                        Shaping the Future of Industrial Automation
+                        The Most Trusted Engineering Partner
                       </h3>
                       <p>
-                        To become the most trusted engineering partner for Tier-1 automotive and industrial wire harness manufacturers globally by delivering innovative automation technologies, micro-precision crimp tooling, and world-class machinery.
+                        To deliver innovative automation technologies, precision machinery and world-class engineering solutions that shape the future of industrial manufacturing.
                       </p>
                     </div>
                   )}
@@ -164,10 +164,10 @@ export default function AboutPage() {
                   {activeTab === "mission" && (
                     <div className="space-y-3">
                       <h3 className="font-display text-2xl font-semibold text-[#0A0A0A]">
-                        Empowering Manufacturers Worldwide
+                        Empower Manufacturers, Everywhere
                       </h3>
                       <p>
-                        Our mission is to empower manufacturers with intelligent engineering solutions that improve production efficiency, eliminate downtime, enhance wire harness quality, and create long-term value for every customer.
+                        To improve production efficiency, reduce downtime, enhance product quality and create long-term value through continuous innovation and dedicated after-sales support.
                       </p>
                     </div>
                   )}

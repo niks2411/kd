@@ -18,7 +18,7 @@ export const Footer = () => {
                 KD ENGINEERS INDIA PVT. LTD.
               </span>
               <span className="text-[11px] font-mono font-semibold tracking-wider text-[#fd0000] uppercase block mt-1">
-                ( SIMPLIFYING WIRING HARNESS MAKING )
+                SIMPLIFYING WIRING HARNESS MAKING
               </span>
             </Link>
             <p className="text-white/55 font-light text-xs leading-relaxed max-w-sm">

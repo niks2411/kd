@@ -155,10 +155,10 @@ export default function AboutSection() {
                   </div>
                   <div>
                     <h3 style={{ fontSize: "1.3rem", fontWeight: 700, color: "#0f172a", marginBottom: "0.5rem" }}>
-                      Shaping the Future of Industrial Automation
+                      The Most Trusted Engineering Partner
                     </h3>
                     <p style={{ color: "#334155" }}>
-                      To become the most trusted engineering partner for manufacturers by delivering innovative automation technologies, precision machinery, and world-class engineering solutions that shape the future of industrial manufacturing globally.
+                      To deliver innovative automation technologies, precision machinery and world-class engineering solutions that shape the future of industrial manufacturing.
                     </p>
                   </div>
                 </div>
@@ -173,13 +173,10 @@ export default function AboutSection() {
                   </div>
                   <div>
                     <h3 style={{ fontSize: "1.3rem", fontWeight: 700, color: "#0f172a", marginBottom: "0.5rem" }}>
-                      Empowering Manufacturers Worldwide
+                      Empower Manufacturers, Everywhere
                     </h3>
-                    <p style={{ color: "#334155", marginBottom: "0.75rem" }}>
-                      Our mission is to empower manufacturers with intelligent engineering solutions that improve production efficiency, reduce downtime, enhance product quality, and create long-term value for every customer.
-                    </p>
-                    <p style={{ color: "#64748b", fontSize: "0.95rem" }}>
-                      We strive to achieve this through continuous innovation, customer-focused engineering, advanced manufacturing practices, and dedicated after-sales support.
+                    <p style={{ color: "#334155" }}>
+                      To improve production efficiency, reduce downtime, enhance product quality and create long-term value through continuous innovation and dedicated after-sales support.
                     </p>
                   </div>
                 </div>
