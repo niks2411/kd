@@ -28,7 +28,7 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
-      setFormStatus("Thank you! Your message has been sent directly to our Gurugram engineering team.");
+      setFormStatus("Thank you! Your message has been sent to our engineering team.");
     }, 1000);
   };
 

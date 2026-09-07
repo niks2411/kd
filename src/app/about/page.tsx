@@ -117,7 +117,7 @@ export default function AboutPage() {
                   <PhoneCall size={14} /> Direct Engineering Line
                 </div>
                 <h4 className="text-sm font-semibold">Connect with Our Team</h4>
-                <p className="text-xs text-[#9CA3AF] font-light">Discuss your wire specifications or schedule a visit to our Gurugram plant.</p>
+                <p className="text-xs text-[#9CA3AF] font-light">Discuss your wire specifications or schedule a visit to our Faridabad or Pune plants.</p>
                 <a
                   href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
                   className="inline-flex items-center gap-1.5 text-xs font-mono text-[#fd0000] font-semibold hover:underline"
@@ -136,16 +136,16 @@ export default function AboutPage() {
                   {activeTab === "about" && (
                     <>
                       <h3 className="font-display text-2xl font-semibold text-[#0A0A0A] mb-2">
-                        Over 25 Years of Automation Leadership
+                        Engineering Reliability for Wiring Harness Manufacturing
                       </h3>
                       <p>
-                        Our journey has always been driven by one purpose — to simplify manufacturing while helping businesses achieve higher productivity, greater accuracy, and improved operational efficiency.
+                        Established in 1999 by Mr. Devender Sharma, KD Engineers India Pvt. Ltd. delivers precision-engineered solutions for automotive, EV, industrial, and appliance manufacturers worldwide.
                       </p>
                       <p>
-                        With years of engineering expertise and deep understanding of industrial manufacturing, we design and manufacture advanced wire processing machinery capable of meeting the changing demands of modern production facilities.
+                        KD Engineers specializes in end-to-end wiring harness solutions including testing systems, assembly line automation, wire and cable processing machines, and customized Special Purpose Machines (SPM).
                       </p>
                       <p>
-                        Our solutions combine intelligent automation, precision kinematics, robust construction, and user-friendly operation — enabling manufacturers to reduce unit production costs while eliminating defects.
+                        Formally incorporated as a Private Limited company in 2025 under the leadership of Mr. Gajesh Sharma, Managing Director, KD Engineers continues to drive innovation, operational excellence, and customer-centric solutions from our manufacturing facilities in Faridabad (Haryana) and Pune (Maharashtra).
                       </p>
                     </>
                   )}

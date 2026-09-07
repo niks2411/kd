@@ -22,8 +22,7 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="text-white/55 font-light text-xs leading-relaxed max-w-sm">
-              Precision engineering, intelligent wire harness automation and manufacturing excellence —
-              building long-term partnerships that help global industries achieve more.
+              Precision-engineered solutions for wiring harness automation, testing, wire and cable processing, crimping and assembly.
             </p>
           </div>
 
@@ -32,7 +31,7 @@ export const Footer = () => {
             <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/40">Navigation</span>
             <div className="mt-5 grid grid-cols-2 gap-4 max-w-[220px]">
               <ul className="space-y-3">
-                {NAV_LINKS.slice(0, 3).map((l) => (
+                {NAV_LINKS.slice(0, 4).map((l) => (
                   <li key={l.href}>
                     <Link href={l.href} className="text-white/70 hover:text-[#fd0000] transition-colors text-sm font-light">
                       {l.label}
@@ -41,7 +40,7 @@ export const Footer = () => {
                 ))}
               </ul>
               <ul className="space-y-3">
-                {NAV_LINKS.slice(3, 6).map((l) => (
+                {NAV_LINKS.slice(4, 7).map((l) => (
                   <li key={l.href}>
                     <Link href={l.href} className="text-white/70 hover:text-[#fd0000] transition-colors text-sm font-light">
                       {l.label}
@@ -101,7 +100,11 @@ export const Footer = () => {
 
           {/* Copyright & Back to top button */}
           <div className="flex flex-col md:flex-row justify-between gap-4 items-start md:items-center">
-            <p className="text-white/40 text-xs font-mono">© {new Date().getFullYear()} KD Engineers India Private Limited. All rights reserved.</p>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <p className="text-white/40 text-xs font-mono">© {new Date().getFullYear()} K.D. Engineers India Pvt. Ltd.</p>
+              <Link href="/privacy" className="text-white/40 hover:text-white/70 text-xs font-mono transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="text-white/40 hover:text-white/70 text-xs font-mono transition-colors">Terms & Conditions</Link>
+            </div>
             <button onClick={top} className="group inline-flex items-center gap-2 text-white/60 hover:text-white text-xs font-mono uppercase tracking-widest cursor-pointer" data-testid="back-to-top">
               Back to top <ArrowUp size={14} className="group-hover:-translate-y-1 transition-transform" />
             </button>
