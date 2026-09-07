@@ -73,7 +73,7 @@ export const ReelsShowcase = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#0A0A0A] text-white overflow-hidden border-b border-[#262626]" data-testid="reels-showcase">
+    <section className="py-16 md:py-24 bg-[#ffffff] text-[#0A0A0A] overflow-hidden border-b border-[#E5E7EB]" data-testid="reels-showcase">
       <div className="mx-auto max-w-[1600px] px-6 md:px-12">
         
         {/* Header */}
@@ -84,12 +84,12 @@ export const ReelsShowcase = () => {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-white">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-[#0A0A0A]">
               Engineering Excellence <span className="font-normal text-[#fd0000]">In Motion</span>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
+            <p className="text-sm sm:text-base text-[#525252] font-light leading-relaxed">
               Watch our precision wire harness machinery, automatic terminal crimping presses, and assembly automation in action.
             </p>
           </Reveal>

@@ -98,119 +98,65 @@ export const Navbar = () => {
                     <AnimatePresence>
                       {productsHovered && (
                         <motion.div
-                          initial={{ opacity: 0, y: 10 }}
+                          initial={{ opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 10 }}
+                          exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[760px]"
+                          className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[1150px] max-w-[95vw]"
                           onMouseEnter={handleMouseEnter}
                           onMouseLeave={handleMouseLeave}
                         >
-                          <div className="bg-[#EDEFF2] border border-[#D1D5DB] shadow-2xl rounded-sm p-8 text-[#111827]">
-                            <h3 className="font-serif text-2xl text-[#2B2D31] font-medium mb-6 tracking-tight">
-                              {PRODUCT_DROPDOWN_MENU.title}
-                            </h3>
+                          <div className="bg-[#ffffff] border border-[#E5E7EB] shadow-2xl rounded-xs p-8 text-[#0A0A0A] flex gap-8 items-stretch">
+                            {/* Left Feature Column */}
+                            <div className="w-[280px] shrink-0 flex flex-col justify-between pr-8 border-r border-[#E5E7EB]">
+                              <div>
+                                <span className="font-mono text-xs font-bold text-[#fd0000] uppercase tracking-wider block mb-3">
+                                  {PRODUCT_DROPDOWN_MENU.overline}
+                                </span>
+                                <h3 className="font-display text-2xl font-bold text-[#0A0A0A] leading-snug tracking-tight">
+                                  {PRODUCT_DROPDOWN_MENU.heading}
+                                </h3>
+                              </div>
+                              <Link
+                                href={PRODUCT_DROPDOWN_MENU.browseLink.href}
+                                onClick={() => setProductsHovered(false)}
+                                className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#fd0000] hover:underline uppercase tracking-wider mt-8"
+                              >
+                                {PRODUCT_DROPDOWN_MENU.browseLink.label}
+                              </Link>
+                            </div>
 
-                            <div className="grid grid-cols-2 gap-x-12 gap-y-3">
-                              {/* Column 1 */}
-                              <div className="flex flex-col gap-2.5">
-                                {PRODUCT_DROPDOWN_MENU.col1.map((item) => (
-                                  <div key={item.label} className="relative group">
-                                    <div
-                                      className="flex items-center justify-between cursor-pointer py-0.5 hover:text-[#fd0000] transition-colors"
-                                      onMouseEnter={() =>
-                                        item.subItems ? setExpandedSub(item.label) : setExpandedSub(null)
-                                      }
-                                    >
+                            {/* Right 4 Category Columns */}
+                            <div className="grid grid-cols-4 gap-6 flex-1 pt-1">
+                              {PRODUCT_DROPDOWN_MENU.categories.map((cat) => (
+                                <div key={cat.title} className="flex flex-col space-y-3">
+                                  {/* Category Header */}
+                                  <Link
+                                    href={cat.href}
+                                    onClick={() => setProductsHovered(false)}
+                                    className="group flex items-start justify-between gap-1 pb-2 border-b border-[#E5E7EB] hover:border-[#fd0000] transition-colors"
+                                  >
+                                    <span className="font-display font-bold text-[13px] text-[#0A0A0A] group-hover:text-[#fd0000] transition-colors leading-snug">
+                                      {cat.title}
+                                    </span>
+                                    <ArrowUpRight size={14} className="text-[#fd0000] shrink-0 mt-0.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                  </Link>
+
+                                  {/* Sub-items List */}
+                                  <div className="flex flex-col space-y-2 pt-1">
+                                    {cat.items.map((item) => (
                                       <Link
+                                        key={item.label}
                                         href={item.href}
                                         onClick={() => setProductsHovered(false)}
-                                        className="font-sans text-[15px] font-semibold text-[#1F2937] hover:text-[#fd0000] tracking-wide"
+                                        className="text-[12px] font-normal text-[#525252] hover:text-[#fd0000] leading-tight transition-colors py-0.5"
                                       >
                                         {item.label}
                                       </Link>
-                                      {item.subItems && (
-                                        <ChevronDown
-                                          size={15}
-                                          className={`text-[#4B5563] group-hover:text-[#fd0000] transition-transform ${expandedSub === item.label ? "-rotate-90 text-[#fd0000]" : ""
-                                            }`}
-                                        />
-                                      )}
-                                    </div>
-
-                                    {/* Sub-items flyout */}
-                                    {item.subItems && expandedSub === item.label && (
-                                      <motion.div
-                                        initial={{ opacity: 0, x: -5 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        className="mt-1 ml-3 pl-3 border-l-2 border-[#fd0000] flex flex-col gap-1.5 py-1"
-                                      >
-                                        {item.subItems.map((sub) => (
-                                          <Link
-                                            key={sub.label}
-                                            href={sub.href}
-                                            onClick={() => setProductsHovered(false)}
-                                            className="text-xs font-medium text-[#4B5563] hover:text-[#fd0000] transition-colors flex items-center gap-1"
-                                          >
-                                            <ChevronRight size={12} className="text-[#fd0000]" />
-                                            {sub.label}
-                                          </Link>
-                                        ))}
-                                      </motion.div>
-                                    )}
+                                    ))}
                                   </div>
-                                ))}
-                              </div>
-
-                              {/* Column 2 */}
-                              <div className="flex flex-col gap-2.5">
-                                {PRODUCT_DROPDOWN_MENU.col2.map((item) => (
-                                  <div key={item.label} className="relative group">
-                                    <div
-                                      className="flex items-center justify-between cursor-pointer py-0.5 hover:text-[#fd0000] transition-colors"
-                                      onMouseEnter={() =>
-                                        item.subItems ? setExpandedSub(item.label) : setExpandedSub(null)
-                                      }
-                                    >
-                                      <Link
-                                        href={item.href}
-                                        onClick={() => setProductsHovered(false)}
-                                        className="font-sans text-[15px] font-semibold text-[#1F2937] hover:text-[#fd0000] tracking-wide"
-                                      >
-                                        {item.label}
-                                      </Link>
-                                      {item.subItems && (
-                                        <ChevronDown
-                                          size={15}
-                                          className={`text-[#4B5563] group-hover:text-[#fd0000] transition-transform ${expandedSub === item.label ? "-rotate-90 text-[#fd0000]" : ""
-                                            }`}
-                                        />
-                                      )}
-                                    </div>
-
-                                    {/* Sub-items flyout */}
-                                    {item.subItems && expandedSub === item.label && (
-                                      <motion.div
-                                        initial={{ opacity: 0, x: -5 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        className="mt-1 ml-3 pl-3 border-l-2 border-[#fd0000] flex flex-col gap-1.5 py-1"
-                                      >
-                                        {item.subItems.map((sub) => (
-                                          <Link
-                                            key={sub.label}
-                                            href={sub.href}
-                                            onClick={() => setProductsHovered(false)}
-                                            className="text-xs font-medium text-[#4B5563] hover:text-[#fd0000] transition-colors flex items-center gap-1"
-                                          >
-                                            <ChevronRight size={12} className="text-[#fd0000]" />
-                                            {sub.label}
-                                          </Link>
-                                        ))}
-                                      </motion.div>
-                                    )}
-                                  </div>
-                                ))}
-                              </div>
+                                </div>
+                              ))}
                             </div>
                           </div>
                         </motion.div>
@@ -222,51 +168,48 @@ export const Navbar = () => {
             })}
           </nav>
 
-          <Link
-            href="/contact"
-            data-testid="nav-quote-btn"
-            className="hidden lg:inline-flex items-center gap-2 bg-[#0A0A0A] text-white px-5 py-2.5 text-sm font-medium group hover:bg-[#fd0000] transition-colors duration-300"
-          >
-            Request a Quote
-            <ArrowUpRight
-              size={16}
-              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/contact"
+              data-testid="nav-quote-btn"
+              className="bg-[#0A0A0A] text-white px-5 py-2.5 text-xs font-mono uppercase tracking-widest hover:bg-[#fd0000] transition-colors duration-300 shadow-sm"
+            >
+              Request a Quote
+            </Link>
 
-          <button
-            className="lg:hidden text-[#0A0A0A] p-2"
-            onClick={() => setOpen(true)}
-            data-testid="menu-open"
-            aria-label="Open menu"
-          >
-            <Menu size={24} />
-          </button>
+            <button
+              onClick={() => setOpen(true)}
+              className="lg:hidden text-[#0A0A0A] p-2 hover:text-[#fd0000] transition-colors"
+              aria-label="Open navigation menu"
+              data-testid="mobile-menu-btn"
+            >
+              <Menu size={24} />
+            </button>
+          </div>
         </div>
       </motion.header>
 
-      {/* Mobile Drawer */}
+      {/* MOBILE NAV DRAWER */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: "-100%" }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: "-100%" }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-[110] bg-[#ffffff] flex flex-col p-6 overflow-y-auto"
-            data-testid="mobile-menu"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "tween", duration: 0.3 }}
+            className="fixed inset-0 z-50 bg-[#ffffff] text-[#0A0A0A] flex flex-col p-6 overflow-y-auto"
           >
-            <div className="flex justify-between items-center h-14 border-b border-[#E5E7EB]">
-              <span className="font-display font-semibold text-lg text-[#0A0A0A]">KD ENGINEERS</span>
+            <div className="flex items-center justify-between border-b border-[#E5E7EB] pb-4">
+              <span className="font-display font-bold text-lg text-[#0A0A0A]">Menu</span>
               <button
                 onClick={() => setOpen(false)}
-                data-testid="menu-close"
-                aria-label="Close menu"
-                className="text-[#0A0A0A] p-2"
+                className="p-2 text-[#0A0A0A] hover:text-[#fd0000] transition-colors"
+                aria-label="Close navigation menu"
               >
                 <X size={24} />
               </button>
             </div>
+
             <nav className="flex flex-col gap-2 mt-8">
               {NAV_LINKS.map((l, i) => {
                 const isProducts = l.label === "Products";
@@ -296,21 +239,31 @@ export const Navbar = () => {
                           />
                         </div>
                         {mobileProductsOpen && (
-                          <div className="bg-[#EDEFF2] p-4 my-2 rounded flex flex-col gap-3">
-                            <span className="font-serif text-lg font-medium text-[#2B2D31]">New Product</span>
-                            <div className="grid grid-cols-1 gap-2">
-                              {[...PRODUCT_DROPDOWN_MENU.col1, ...PRODUCT_DROPDOWN_MENU.col2].map((item) => (
+                          <div className="bg-[#FAFAFA] border border-[#E5E7EB] p-4 my-2 rounded flex flex-col gap-4">
+                            {PRODUCT_DROPDOWN_MENU.categories.map((cat) => (
+                              <div key={cat.title} className="space-y-1">
                                 <Link
-                                  key={item.label}
-                                  href={item.href}
+                                  href={cat.href}
                                   onClick={() => setOpen(false)}
-                                  className="text-sm font-semibold text-[#1F2937] hover:text-[#fd0000] flex items-center justify-between"
+                                  className="font-display text-sm font-bold text-[#0A0A0A] hover:text-[#fd0000] flex items-center justify-between"
                                 >
-                                  <span>{item.label}</span>
-                                  {item.subItems && <span className="text-xs text-[#fd0000]">∨</span>}
+                                  <span>{cat.title}</span>
+                                  <ArrowUpRight size={14} className="text-[#fd0000]" />
                                 </Link>
-                              ))}
-                            </div>
+                                <div className="pl-2 space-y-1 border-l-2 border-[#fd0000] mt-1">
+                                  {cat.items.map((sub) => (
+                                    <Link
+                                      key={sub.label}
+                                      href={sub.href}
+                                      onClick={() => setOpen(false)}
+                                      className="text-xs font-normal text-[#525252] hover:text-[#fd0000] block py-0.5"
+                                    >
+                                      {sub.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
                           </div>
                         )}
                       </div>

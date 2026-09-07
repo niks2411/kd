@@ -44,8 +44,9 @@ function ProductsContent() {
   // Extract all categories from dropdown menu list
   const allCategories = [
     "All",
-    ...PRODUCT_DROPDOWN_MENU.col1.map((c) => c.label),
-    ...PRODUCT_DROPDOWN_MENU.col2.map((c) => c.label),
+    ...(PRODUCT_DROPDOWN_MENU.categories
+      ? PRODUCT_DROPDOWN_MENU.categories.map((c) => c.title)
+      : []),
   ];
 
   // Synchronize category selection from URL param if present

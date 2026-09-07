@@ -28,8 +28,9 @@ export const Hero = () => {
         >
           <source src="/video.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay for text contrast */}
-        <div className="absolute inset-0" style={{ background: "rgba(0, 0, 0, 0.45)" }} />
+        {/* Dark overlay with left directional gradient fade for maximum text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/90 via-[#0A0A0A]/65 to-black/30" />
+        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
       </motion.div>
 
       <div className="relative z-10 mx-auto max-w-[1600px] w-full px-6 md:px-12">
@@ -52,10 +53,10 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.9 }}
-              className="lg:col-span-6 text-sm sm:text-base md:text-lg font-light leading-relaxed text-white/80 max-w-xl"
+              className="lg:col-span-6 text-xs sm:text-sm md:text-sm font-light leading-relaxed text-white/80 max-w-lg"
             >
               KD Engineers delivers advanced wire processing machines, wiring harness assembly systems, testing solutions, and customized industrial automation for manufacturers who demand higher productivity, consistent quality, and scalable production.
-              <span className="block mt-2 font-medium text-white">
+              <span className="block mt-2 font-medium text-white text-xs sm:text-sm">
                 From Wire to Finished Harness — We Engineer the Complete Process.
               </span>
             </motion.p>

@@ -354,45 +354,45 @@ export const PRODUCTS = [
 ];
 
 export const PRODUCT_DROPDOWN_MENU = {
-  title: "Products",
-  col1: [
+  overline: "PRODUCT PORTFOLIO",
+  heading: "Equipment for each stage of harness production.",
+  browseLink: { label: "Browse all products →", href: "/products" },
+  categories: [
     {
-      label: "Cut&Strip",
-      href: "/products/cut-strip",
-      subItems: [
-        { label: "Automatic Wire Cut & Strip Machine", href: "/products/cut-strip" },
-        { label: "High-Speed Micro-Wire Cut & Strip", href: "/products/cut-strip" },
-        { label: "Multi-Core Shielded Cable Cut & Strip", href: "/products/cut-strip" },
+      title: "Testing & Quality Equipment",
+      href: "/products?cat=testing",
+      items: [
+        { label: "Wiring Harness Testing Board / Bench", href: "/products/wiring-harness-testing-board-bench" },
+        { label: "Wiring Harness Testing Bench", href: "/products/wiring-harness-testing-bench" },
+        { label: "Wiring Harness Testing Fixtures / Modules", href: "/products/wiring-harness-testing-fixtures-modules" },
+        { label: "Wiring Harness Testing Fixtures", href: "/products/wiring-harness-testing-fixtures" },
       ],
     },
     {
-      label: "Strip,Twist",
-      href: "/products/strip-twist",
-      subItems: [
-        { label: "Single-Wire Stripper & Twister", href: "/products/strip-twist" },
-        { label: "Multi-Wire Pneumatic Stripper & Twister", href: "/products/strip-twist" },
+      title: "Harness Assembly Aids",
+      href: "/products?cat=assembly",
+      items: [
+        { label: "Digitization Assembly Wiring System (DWS)", href: "/products/digitization-assembly-wiring-system" },
+        { label: "Assembly Board with LED Guided", href: "/products/assembly-board-led-guided" },
+        { label: "Assembly Conveyor", href: "/products/assembly-conveyor" },
       ],
     },
-    { label: "Labeling Machine", href: "/products/labeling-machine" },
-    { label: "Cable Solder& Weld Machine", href: "/products/cable-solder-weld" },
-    { label: "Prefeeding& Deposit System", href: "/products/prefeeding-deposit" },
-    { label: "Heat Shrinkage", href: "/products/heat-shrinkage" },
-    { label: "Printing Marking", href: "/products/printing-marking" },
-  ],
-  col2: [
     {
-      label: "Crimp",
-      href: "/products/crimp",
-      subItems: [
-        { label: "Automatic Terminal Crimping Press", href: "/products/crimp" },
-        { label: "Semi-Automatic Crimp Machine", href: "/products/crimp" },
-        { label: "Servo Crimping Machine", href: "/products/crimp" },
-        { label: "Crimp Force Monitor System", href: "/products/crimp" },
+      title: "Terminal Crimping Solutions",
+      href: "/products?cat=crimping",
+      items: [
+        { label: "KDE-3.0 Fully Automatic Both End Crimping Machine with Seal Insertion", href: "/products/kde-3-0-both-end-crimping-machine" },
       ],
     },
-    { label: "Wind & Nylon Tying", href: "/products/wind-nylon-tying" },
-    { label: "Tape Dispenser", href: "/products/tape-dispenser" },
-    { label: "Wire Harness Tester & Assembly Table", href: "/products/wire-harness-tester" },
+    {
+      title: "Wiring Harness Processing Machines",
+      href: "/products?cat=processing",
+      items: [
+        { label: "Automatic Precision Wire Cut & Strip Machine", href: "/products/cut-strip" },
+        { label: "Wire Stripping & Twisting Machine", href: "/products/strip-twist" },
+        { label: "Automated Wire & Cable Labeling Machine", href: "/products/labeling-machine" },
+      ],
+    },
   ],
 };
 

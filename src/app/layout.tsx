@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { QuickHelpWidget } from "@/components/QuickHelpWidget";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className="grain antialiased bg-[#ffffff] text-[#0A0A0A]">
         <SmoothScroll>
           {children}
+          <QuickHelpWidget />
           <Toaster position="bottom-right" />
         </SmoothScroll>
       </body>

@@ -18,10 +18,10 @@ export default function Home() {
       <main>
         <Hero />
         <EditorialMarquee />
+        <ReelsShowcase />
         <About />
         <VideoShowcase />
         <Ethos />
-        <ReelsShowcase />
         <Values />
         <Products />
         <Industries />
