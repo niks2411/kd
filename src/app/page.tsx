@@ -7,7 +7,6 @@ import { Products } from "@/components/sections/Products";
 import { VideoShowcase } from "@/components/sections/VideoShowcase";
 import { ReelsShowcase } from "@/components/sections/ReelsShowcase";
 import { Industries } from "@/components/sections/Industries";
-import { Process } from "@/components/sections/Process";
 import { Ethos } from "@/components/sections/Ethos";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
@@ -21,12 +20,11 @@ export default function Home() {
         <EditorialMarquee />
         <About />
         <VideoShowcase />
+        <Ethos />
         <ReelsShowcase />
         <Values />
         <Products />
         <Industries />
-        <Process />
-        <Ethos />
         <Contact />
       </main>
       <Footer />

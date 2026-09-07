@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 const VIDEOS = [
-  { id: 1, src: "/1.mp4" },
-  { id: 2, src: "/2.mp4" },
   { id: 3, src: "/3.mp4" },
+  { id: 2, src: "/2.mp4" },
+  { id: 1, src: "/1.mp4" },
 ];
 
 export const VideoShowcase = () => {
