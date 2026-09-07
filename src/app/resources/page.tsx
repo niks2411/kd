@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Reveal, Overline } from "@/components/motion/Reveal";
-import { FileText, Download, Youtube, BookOpen, HelpCircle, PhoneCall } from "lucide-react";
+import { FileText, Download, Video, BookOpen, HelpCircle, PhoneCall } from "lucide-react";
 
 export const metadata = {
   title: "Resources | KD Engineers India Pvt. Ltd.",
@@ -27,7 +27,7 @@ const RESOURCES = [
   {
     title: "Machine Video Demonstrations",
     description: "Watch live operational demonstrations of high-speed wire cutting, terminal crimping presses, seal insertion, and testing benches on our YouTube channel.",
-    icon: Youtube,
+    icon: Video,
     type: "Video",
     tag: "Live Machinery",
   },
