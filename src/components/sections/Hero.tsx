@@ -38,8 +38,8 @@ export const Hero = () => {
 
 
           {/* Refined headline scale & clean line block hierarchy */}
-          <div className="max-w-full lg:max-w-[54%]">
-            <h1 className="font-display uppercase font-medium tracking-tight leading-[1.02] text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-white">
+          <div className="max-w-full lg:max-w-[62%]">
+            <h1 className="font-display uppercase font-bold tracking-tight leading-[1.02] text-4xl sm:text-6xl lg:text-[4.25rem] xl:text-[4.5rem] text-white">
               <MaskLine delay={0.25}>KD</MaskLine>
               <MaskLine delay={0.4}>ENGINEERS</MaskLine>
               <MaskLine delay={0.55} className="text-[#fd0000]">the Future of</MaskLine>
@@ -53,10 +53,10 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.9 }}
-              className="lg:col-span-6 text-xs sm:text-sm md:text-sm font-light leading-relaxed text-white/80 max-w-lg"
+              className="lg:col-span-6 text-base sm:text-[17px] font-sans font-normal leading-relaxed text-white/85 max-w-lg"
             >
               KD Engineers delivers advanced wire processing machines, wiring harness assembly systems, testing solutions, and customized industrial automation for manufacturers who demand higher productivity, consistent quality, and scalable production.
-              <span className="block mt-2 font-medium text-white text-xs sm:text-sm">
+              <span className="block mt-2 font-medium text-white text-sm sm:text-base">
                 From Wire to Finished Harness — We Engineer the Complete Process.
               </span>
             </motion.p>

@@ -47,7 +47,7 @@ export const Navbar = () => {
           <Link href="/" className="flex items-center gap-3.5 group py-0 my-0" data-testid="logo-btn">
             <img src="/logo without bg.jpg.jpeg" alt="KD Engineers India" className="h-20 sm:h-28 w-auto object-contain my-0 py-0 transition-transform group-hover:scale-105" />
             <div className="flex flex-col justify-center my-0 py-0">
-              <span className="font-display font-bold tracking-tight text-lg sm:text-xl text-[#0A0A0A] leading-tight">
+              <span className="font-display font-bold uppercase tracking-wider text-lg sm:text-[19px] text-[#0A0A0A] leading-tight">
                 KD ENGINEERS INDIA PVT. LTD.
               </span>
               <span className="text-[10px] sm:text-[11px] font-mono font-semibold tracking-wider text-[#fd0000] uppercase mt-0.5">
@@ -71,8 +71,8 @@ export const Navbar = () => {
                   <Link
                     href={l.href}
                     data-testid={`nav-${l.label.toLowerCase()}`}
-                    className={`text-sm font-medium tracking-wide transition-colors py-1 relative flex items-center gap-1 ${isActive || (isProducts && productsHovered)
-                        ? "text-[#fd0000] font-semibold"
+                    className={`text-sm font-semibold tracking-wide transition-colors py-1 relative flex items-center gap-1 ${isActive || (isProducts && productsHovered)
+                        ? "text-[#fd0000] font-bold"
                         : "text-[#0A0A0A] hover:text-[#fd0000]"
                       }`}
                   >

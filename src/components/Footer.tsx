@@ -14,7 +14,7 @@ export const Footer = () => {
           {/* Section 1: Brand & Philosophy */}
           <div className="md:col-span-4">
             <Link href="/" className="block mb-6 group w-fit">
-              <span className="font-display font-bold tracking-tight text-xl text-white block leading-tight">
+              <span className="font-display font-bold uppercase tracking-wider text-lg sm:text-[19px] text-white block leading-tight">
                 KD ENGINEERS INDIA PVT. LTD.
               </span>
               <span className="text-[11px] font-mono font-semibold tracking-wider text-[#fd0000] uppercase block mt-1">

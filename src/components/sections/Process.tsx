@@ -33,9 +33,9 @@ export const Process = () => (
             className="group border-r border-b border-white/15 p-8 md:p-10 min-h-[220px] flex flex-col hover:bg-[#fd0000] transition-colors duration-500"
             data-testid={`process-step-${s.n}`}
           >
-            <span className="font-display text-5xl font-extralight text-white/25 group-hover:text-white/80 transition-colors duration-500">{s.n}</span>
-            <h3 className="font-display text-xl font-medium mt-6 mb-3">{s.t}</h3>
-            <p className="text-white/55 font-light text-sm leading-relaxed group-hover:text-white/85 transition-colors">{s.d}</p>
+            <span className="font-mono text-xs sm:text-[13px] font-bold text-[#fd0000] group-hover:text-white transition-colors tracking-wider block">STEP {s.n}</span>
+            <h3 className="font-display text-[22px] sm:text-[24px] font-bold mt-4 mb-2 text-white">{s.t}</h3>
+            <p className="text-white/65 font-sans font-normal text-xs sm:text-sm leading-relaxed group-hover:text-white/90 transition-colors">{s.d}</p>
           </Reveal>
         ))}
       </div>

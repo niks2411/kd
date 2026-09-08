@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Outfit", "sans-serif"],
-        sans: ["IBM Plex Sans", "system-ui", "sans-serif"],
-        mono: ["IBM Plex Mono", "monospace"],
+        display: ["Oswald", "Impact", "sans-serif"],
+        sans: ["Inter", "Roboto", "system-ui", "sans-serif"],
+        mono: ["Roboto Mono", "monospace"],
       },
       colors: {
         klein: "#fd0000",

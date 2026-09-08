@@ -36,59 +36,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-[#ffffff] text-[#0A0A0A]">
       <Navbar />
 
-      <main className="pt-20 pb-0">
-        {/* HIGH-IMPACT HERO BANNER */}
-        <section className="relative bg-[#0A0A0A] text-white py-16 md:py-24 overflow-hidden border-b border-[#262626]">
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-65 pointer-events-none transition-all duration-700"
-            style={{ backgroundImage: "url('/images/hero.png')" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent pointer-events-none" />
-
-          <div className="mx-auto max-w-[1600px] px-6 md:px-12 relative z-10">
-            <div className="max-w-3xl space-y-6">
-              <Reveal>
-                <div className="inline-flex items-center gap-2 bg-[#fd0000] text-white px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider rounded-xs shadow-md">
-                  <Sparkles size={14} /> Direct Engineering Support
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.1}>
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-tight">
-                  Contact Our <span className="text-[#fd0000] font-normal">Engineering Team</span>
-                </h1>
-              </Reveal>
-
-              <Reveal delay={0.2}>
-                <p className="text-base sm:text-lg text-[#D1D5DB] font-light leading-relaxed">
-                  Have questions about wire cutting, crimping machinery, or custom automation? Reach out to our Gurugram engineering facility today.
-                </p>
-              </Reveal>
-
-              {/* Contact Metrics Bar */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/15">
-                <div>
-                  <span className="font-display text-2xl font-semibold text-[#fd0000]">Gurugram</span>
-                  <span className="block text-[11px] font-mono text-[#9CA3AF] uppercase">Manufacturing Plant</span>
-                </div>
-                <div>
-                  <span className="font-display text-2xl font-semibold text-white">&lt; 24 Hours</span>
-                  <span className="block text-[11px] font-mono text-[#9CA3AF] uppercase">Guaranteed Response</span>
-                </div>
-                <div>
-                  <span className="font-display text-2xl font-semibold text-white">Pan-India</span>
-                  <span className="block text-[11px] font-mono text-[#9CA3AF] uppercase">Service Network</span>
-                </div>
-                <div>
-                  <span className="font-display text-2xl font-semibold text-white">Free Demo</span>
-                  <span className="block text-[11px] font-mono text-[#9CA3AF] uppercase">Wire Sample Audit</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+      <main className="pt-28 pb-0">
         {/* SPLIT WORKSPACE: SIDEBAR + CONTACT FORM */}
         <section className="py-14 mx-auto max-w-[1600px] px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-8 items-start">

@@ -45,12 +45,12 @@ export const Products = () => (
               className="absolute inset-0 h-full w-full object-cover grayscale opacity-20 group-hover:opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
             />
             <div className="relative z-10">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#fd0000] font-semibold">{p.tag}</span>
-              <h3 className="font-display text-2xl md:text-3xl font-medium mt-3 tracking-tight flex items-center gap-2 text-[#0A0A0A]">
+              <span className="font-mono text-xs sm:text-[13px] uppercase tracking-[0.18em] text-[#fd0000] font-bold">{p.tag}</span>
+              <h3 className="font-display text-[22px] md:text-[24px] font-bold mt-2.5 tracking-tight flex items-center gap-2 text-[#0A0A0A]">
                 {p.title}
                 <ArrowUpRight size={20} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#fd0000]" />
               </h3>
-              <p className="text-[#525252] font-light leading-relaxed mt-3 max-w-md text-sm">{p.body}</p>
+              <p className="text-[#525252] font-sans font-normal leading-relaxed mt-2.5 max-w-md text-xs sm:text-sm">{p.body}</p>
             </div>
           </Link>
         </Reveal>
