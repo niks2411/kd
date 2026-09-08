@@ -8,10 +8,9 @@ export const Ethos = () => (
     {/* 3P Philosophy */}
     <div>
       <div className="max-w-3xl mb-16">
-        <Reveal><Overline color="text-[#fd0000]">Our 3P Philosophy</Overline></Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight mt-6 leading-[1.02] text-[#0A0A0A]">
-            People. Process. Performance.
+        <Reveal>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.02] text-[#0A0A0A]">
+            Our 3P&apos;s
           </h2>
         </Reveal>
       </div>

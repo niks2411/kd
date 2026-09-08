@@ -58,7 +58,7 @@ export const PRODUCTS = [
     title: "Automatic Precision Wire Cutting Machine",
     specs: "0.1mm² to 25mm² wire range | 10,000 pcs/hr | Micro-stepper feed",
     body: "Dedicated high-speed automatic wire and tubing cutting machine designed for extreme length precision and clean zero-burr cutting across multi-strand copper, Teflon, and PVC cables.",
-    img: IMAGES.machine1,
+    img: "/images/hot_cut_strip.jpg",
     features: [
       "Micro-stepper motor driven high-speed wire feed",
       "Tungsten carbide cutter blades for ultra-long lifespan",
@@ -73,7 +73,7 @@ export const PRODUCTS = [
     title: "Automatic Wire Cut & Strip Machine",
     specs: "0.1mm² to 16mm² wire range | 8,000 pcs/hr | Touchscreen HMI",
     body: "Multi-functional automatic wire processing machine capable of precision cutting, double-ended stripping, and multi-step stripping for automotive and appliance wiring looms.",
-    img: IMAGES.machine1,
+    img: "/images/hot_cut_strip.jpg",
     features: [
       "Titanium nitride coated tool steel stripping blades",
       "Memory storage for 100+ wire program recipes",
@@ -88,7 +88,7 @@ export const PRODUCTS = [
     title: "Wire Stripping & Twisting Machine",
     specs: "AWG 32 - AWG 14 wire range | 4,500 pcs/hr | Synchronized Twister",
     body: "Pneumatic and electric wire stripping and strand twisting machine designed to strip single or multi-core copper wire ends and tight-twist loose strands ready for soldering or crimping.",
-    img: IMAGES.lab,
+    img: "/images/hot_strip_twist.jpg",
     features: [
       "Adjustable twisting speed and rotation direction",
       "V-blade stripping geometry prevents strand damage",
@@ -103,7 +103,7 @@ export const PRODUCTS = [
     title: "Automated Wire & Cable Labeling Machine",
     specs: "Outer diameter 1.5mm - 12mm | Wrap-around & Flag labels | 3,200 pcs/hr",
     body: "High-precision automatic cable labeling machine engineered for wrap-around self-laminating vinyl labels and flag labels on wire harnesses, patch cords, and industrial cables.",
-    img: IMAGES.hero,
+    img: "/images/hot_labeling.jpg",
     features: [
       "Bubble-free smooth wrap-around label application",
       "Compatible with barcode, QR code, and thermal print labels",
@@ -208,7 +208,7 @@ export const PRODUCTS = [
     title: "Terminal Crimping & Servo Applicator Press",
     specs: "2.0 Ton to 5.0 Ton force | Micro-adjustable stroke | Crimp Force Monitor",
     body: "Heavy-duty semi-automatic and automatic crimping presses equipped with micro-adjustable applicators and crimp force waveform monitoring for automotive terminals.",
-    img: IMAGES.machine2,
+    img: "/images/hot_crimp_press.jpg",
     features: [
       "Ultra-rigid cast iron frame prevents deflection under 5-ton load",
       "OTP style quick-change applicator clamping system",

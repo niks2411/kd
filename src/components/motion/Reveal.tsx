@@ -38,8 +38,7 @@ export const MaskLine = ({ children, delay = 0, className = "" }: { children: Re
 );
 
 export const Overline = ({ children, color = "text-ink-soft", className = "" }: { children: ReactNode; color?: string; className?: string }) => (
-  <span className={`inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] font-semibold font-mono ${color} ${className}`}>
-    <span className="h-px w-8 bg-current opacity-50" />
+  <span className={`inline-block text-xs uppercase tracking-[0.25em] font-semibold font-mono ${color} ${className}`}>
     {children}
   </span>
 );

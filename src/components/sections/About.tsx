@@ -1,62 +1,223 @@
 "use client";
 
-import { useRef, ReactNode } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Reveal, Overline } from "@/components/motion/Reveal";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { IMAGES } from "@/lib/data";
 
-interface ChapterProps {
+interface ExpertiseCard {
   n: string;
   tagline: string;
   title: string;
+  description: string[];
   highlight: string;
-  children: ReactNode;
   img: string;
-  flip?: boolean;
 }
 
-const Chapter = ({ n, tagline, title, highlight, children, img, flip }: ChapterProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+const EXPERTISE_CARDS: ExpertiseCard[] = [
+  {
+    n: "01",
+    tagline: "VERIFY EVERY CONNECTION.",
+    title: "Advanced Testing Solutions",
+    description: [
+      "KD Engineers develops precision testing systems and test benches designed to verify the electrical integrity, safety and reliability of wiring harnesses.",
+      "From continuity and insulation testing to high-voltage and customized testing solutions, our systems help manufacturers identify defects, validate performance and maintain consistent quality.",
+    ],
+    highlight: "Test with precision. Validate with confidence.",
+    img: IMAGES.machine3,
+  },
+  {
+    n: "02",
+    tagline: "WHERE EVERY CONNECTION COMES TOGETHER.",
+    title: "Harness Assembly Solutions",
+    description: [
+      "KD Engineers provides assembly boards, fixtures, jigs, workstations and customized assembly solutions engineered around your specific harness and production requirements.",
+      "Our solutions enable organized workflows, repeatable processes and improved operator efficiency — turning complex harness assembly into a controlled and reliable production process.",
+    ],
+    highlight: "Designed for your process. Built for repeatability.",
+    img: IMAGES.lab,
+  },
+  {
+    n: "03",
+    tagline: "PRECISION THAT DRIVES PRODUCTION.",
+    title: "Wire Processing & Automation Machinery",
+    description: [
+      "KD Engineers provides wire cutting, stripping, crimping and specialized processing machinery engineered for accuracy, repeatability and production efficiency.",
+      "From individual processing machines to customized automated systems, we help manufacturers reduce process variation, improve productivity and build with greater consistency.",
+    ],
+    highlight: "Precision in every cut. Consistency in every process.",
+    img: IMAGES.machine1,
+  },
+];
+
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 600 : -600,
+    opacity: 0,
+    scale: 0.95,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -600 : 600,
+    opacity: 0,
+    scale: 0.95,
+  }),
+};
+
+const ExpertiseSlideshow = () => {
+  const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const goTo = useCallback(
+    (index: number) => {
+      setDirection(index > active ? 1 : -1);
+      setActive(index);
+    },
+    [active]
+  );
+
+  const next = useCallback(() => {
+    setDirection(1);
+    setActive((prev) => (prev + 1) % EXPERTISE_CARDS.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setDirection(-1);
+    setActive((prev) => (prev - 1 + EXPERTISE_CARDS.length) % EXPERTISE_CARDS.length);
+  }, []);
+
+  // Auto-advance every 6 seconds
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(next, 6000);
+    return () => clearInterval(timer);
+  }, [isPaused, next]);
+
+  const card = EXPERTISE_CARDS[active];
 
   return (
-    <div ref={ref} className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-      <div className={`lg:col-span-6 ${flip ? "lg:order-2" : ""}`}>
-        <div className="relative overflow-hidden aspect-[4/3] group border border-[#E5E7EB] rounded-xs shadow-2xs">
-          <motion.img style={{ y }} src={img} alt={title} className="absolute inset-0 h-[116%] w-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-700" />
-          <span className="absolute top-4 left-4 font-mono text-xs tracking-[0.2em] bg-[#0A0A0A] text-white px-3 py-1 font-bold">
-            EXPERT {n}
-          </span>
-        </div>
-      </div>
-      <div className={`lg:col-span-6 ${flip ? "lg:order-1" : ""}`}>
-        <div className="relative pt-10">
-          <span className="font-display text-[8rem] sm:text-[9rem] leading-none font-extralight text-[#F3F4F6] absolute -top-12 -left-4 select-none pointer-events-none z-0">
-            {n}
-          </span>
-          
-          <div className="relative z-10 space-y-4">
-            <Reveal>
-              <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#fd0000] block">
-                {tagline}
-              </span>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-[#0A0A0A] leading-tight">{title}</h3>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <div className="space-y-4 text-[#525252] font-light leading-relaxed text-base md:text-lg max-w-xl">{children}</div>
-            </Reveal>
-
-            <Reveal delay={0.3}>
-              <div className="inline-block pt-2 border-l-2 border-[#fd0000] pl-3 font-mono text-xs font-semibold text-[#0A0A0A] uppercase tracking-wider">
-                {highlight}
+    <div
+      className="relative"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Slide container */}
+      <div className="relative overflow-hidden border border-[#E5E7EB] bg-white" style={{ minHeight: 520 }}>
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={active}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="grid lg:grid-cols-12 gap-0 h-full"
+          >
+            {/* Image side */}
+            <div className="lg:col-span-5 relative overflow-hidden group">
+              <div className="relative h-full min-h-[280px] lg:min-h-[520px]">
+                <img
+                  src={card.img}
+                  alt={card.title}
+                  className="absolute inset-0 h-full w-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-700"
+                />
+                {/* Expert badge */}
+                <span className="absolute top-5 left-5 font-mono text-xs tracking-[0.2em] bg-[#0A0A0A] text-white px-3 py-1.5 font-bold z-10">
+                  EXPERT {card.n}
+                </span>
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10 lg:bg-gradient-to-r lg:from-transparent lg:to-white pointer-events-none" />
               </div>
-            </Reveal>
-          </div>
+            </div>
+
+            {/* Content side */}
+            <div className="lg:col-span-7 flex flex-col justify-center p-8 md:p-12 lg:p-16 relative">
+              {/* Big watermark number */}
+              <span className="font-display text-[10rem] sm:text-[12rem] leading-none font-extralight text-[#F3F4F6] absolute -top-8 right-4 select-none pointer-events-none z-0">
+                {card.n}
+              </span>
+
+              <div className="relative z-10 space-y-5">
+                <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#fd0000] block">
+                  {card.tagline}
+                </span>
+
+                <h3 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-light tracking-tight text-[#0A0A0A] leading-tight">
+                  {card.title}
+                </h3>
+
+                <div className="space-y-3 text-[#525252] font-light leading-relaxed text-base md:text-lg max-w-xl">
+                  {card.description.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+
+                <div className="inline-block pt-3 border-l-2 border-[#fd0000] pl-3 font-mono text-xs font-semibold text-[#0A0A0A] uppercase tracking-wider">
+                  {card.highlight}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Controls bar */}
+      <div className="flex items-center justify-between mt-6">
+        {/* Dot indicators */}
+        <div className="flex items-center gap-2">
+          {EXPERTISE_CARDS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className="relative h-2 rounded-full transition-all duration-500 cursor-pointer"
+              style={{
+                width: active === i ? 32 : 8,
+                background: active === i ? "#fd0000" : "#E5E7EB",
+              }}
+              aria-label={`Go to slide ${i + 1}`}
+            >
+              {/* Auto-progress bar inside active dot */}
+              {active === i && !isPaused && (
+                <motion.div
+                  className="absolute inset-0 rounded-full bg-[#fd0000]/40"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 6, ease: "linear" }}
+                  style={{ transformOrigin: "left" }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Slide counter */}
+        <span className="font-mono text-xs tracking-[0.15em] text-[#525252] hidden sm:block">
+          {String(active + 1).padStart(2, "0")} / {String(EXPERTISE_CARDS.length).padStart(2, "0")}
+        </span>
+
+        {/* Arrow navigation */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={prev}
+            className="w-10 h-10 rounded-full border border-[#E5E7EB] bg-white flex items-center justify-center hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all duration-300 cursor-pointer"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            onClick={next}
+            className="w-10 h-10 rounded-full border border-[#0A0A0A] bg-[#0A0A0A] text-white flex items-center justify-center hover:bg-[#fd0000] hover:border-[#fd0000] transition-all duration-300 cursor-pointer"
+            aria-label="Next slide"
+          >
+            <ChevronRight size={18} />
+          </button>
         </div>
       </div>
     </div>
@@ -65,7 +226,7 @@ const Chapter = ({ n, tagline, title, highlight, children, img, flip }: ChapterP
 
 export const About = () => (
   <section id="about" className="py-16 md:py-24 mx-auto max-w-[1600px] px-6 md:px-12 bg-[#ffffff]" data-testid="about">
-    <div className="mb-20 md:mb-28 max-w-4xl space-y-4">
+    <div className="mb-16 md:mb-20 max-w-4xl space-y-4">
       <Reveal><Overline color="text-[#fd0000]">Three Core Expertises. One Engineering Standard.</Overline></Reveal>
       <Reveal delay={0.1}>
         <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.02] text-[#0A0A0A]">
@@ -79,56 +240,10 @@ export const About = () => (
       </Reveal>
     </div>
 
-    <div className="space-y-28 md:space-y-36">
-      {/* 01 Testing */}
-      <Chapter
-        n="01"
-        tagline="VERIFY EVERY CONNECTION."
-        title="Advanced Testing Solutions"
-        highlight="Test with precision. Validate with confidence."
-        img={IMAGES.machine3}
-      >
-        <p>
-          KD Engineers develops precision testing systems and test benches designed to verify the electrical integrity, safety and reliability of wiring harnesses.
-        </p>
-        <p>
-          From continuity and insulation testing to high-voltage and customized testing solutions, our systems help manufacturers identify defects, validate performance and maintain consistent quality.
-        </p>
-      </Chapter>
-
-      {/* 02 Assembly */}
-      <Chapter
-        n="02"
-        tagline="WHERE EVERY CONNECTION COMES TOGETHER."
-        title="Harness Assembly Solutions"
-        highlight="Designed for your process. Built for repeatability."
-        img={IMAGES.lab}
-        flip
-      >
-        <p>
-          KD Engineers provides assembly boards, fixtures, jigs, workstations and customized assembly solutions engineered around your specific harness and production requirements.
-        </p>
-        <p>
-          Our solutions enable organized workflows, repeatable processes and improved operator efficiency — turning complex harness assembly into a controlled and reliable production process.
-        </p>
-      </Chapter>
-
-      {/* 03 Machineries */}
-      <Chapter
-        n="03"
-        tagline="PRECISION THAT DRIVES PRODUCTION."
-        title="Wire Processing & Automation Machinery"
-        highlight="Precision in every cut. Consistency in every process."
-        img={IMAGES.machine1}
-      >
-        <p>
-          KD Engineers provides wire cutting, stripping, crimping and specialized processing machinery engineered for accuracy, repeatability and production efficiency.
-        </p>
-        <p>
-          From individual processing machines to customized automated systems, we help manufacturers reduce process variation, improve productivity and build with greater consistency.
-        </p>
-      </Chapter>
-    </div>
+    {/* Expertise slideshow */}
+    <Reveal delay={0.15}>
+      <ExpertiseSlideshow />
+    </Reveal>
 
     {/* Vision & Mission */}
     <div className="grid md:grid-cols-2 gap-px bg-[#E5E7EB] mt-28 md:mt-36 border border-[#E5E7EB]">

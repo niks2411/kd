@@ -38,34 +38,31 @@ export const Hero = () => {
 
 
           {/* Refined headline scale & clean line block hierarchy */}
-          <div className="max-w-full lg:max-w-[62%]">
-            <h1 className="font-display uppercase font-bold tracking-tight leading-[1.02] text-4xl sm:text-6xl lg:text-[4.25rem] xl:text-[4.5rem] text-white">
-              <MaskLine delay={0.25}>KD</MaskLine>
-              <MaskLine delay={0.4}>ENGINEERS</MaskLine>
-              <MaskLine delay={0.55} className="text-[#fd0000]">the Future of</MaskLine>
-              <MaskLine delay={0.7}>Wire Harness</MaskLine>
-              <MaskLine delay={0.85}>Manufacturing</MaskLine>
+          <div className="max-w-full lg:max-w-[55%]">
+            <h1 className="font-display uppercase font-bold tracking-tight leading-[1.05] text-3xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.5rem] text-white">
+              <MaskLine delay={0.25}>
+                <span className="text-[#fd0000]">the Future</span> <span className="text-white">of</span>
+              </MaskLine>
+              <MaskLine delay={0.4}>Wire Harness</MaskLine>
+              <MaskLine delay={0.55}>Manufacturing</MaskLine>
             </h1>
           </div>
 
-          <div className="mt-8 grid lg:grid-cols-12 gap-8 items-end">
+          <div className="mt-8 max-w-2xl space-y-6">
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.9 }}
-              className="lg:col-span-6 text-base sm:text-[17px] font-sans font-normal leading-relaxed text-white/85 max-w-lg"
+              className="text-base sm:text-[17px] font-sans font-normal leading-relaxed text-white/85"
             >
               KD Engineers delivers advanced wire processing machines, wiring harness assembly systems, testing solutions, and customized industrial automation for manufacturers who demand higher productivity, consistent quality, and scalable production.
-              <span className="block mt-2 font-medium text-white text-sm sm:text-base">
-                From Wire to Finished Harness — We Engineer the Complete Process.
-              </span>
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.25, duration: 0.9 }}
-              className="lg:col-span-6 lg:col-start-7 flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 pt-2"
             >
               <Link
                 href="/products"

@@ -20,7 +20,7 @@ interface FieldProps {
 
 const Field = ({ label, name, value, onChange, type = "text", required, textarea, placeholder }: FieldProps) => (
   <label className="block group">
-    <span className="font-mono text-xs uppercase tracking-[0.18em] text-white font-semibold block mb-1">
+    <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/90 font-semibold block">
       {label}{required && <span className="text-white font-bold"> *</span>}
     </span>
     {textarea ? (
@@ -29,10 +29,10 @@ const Field = ({ label, name, value, onChange, type = "text", required, textarea
         value={value}
         onChange={onChange}
         required={required}
-        rows={4}
+        rows={2}
         placeholder={placeholder}
         data-testid={`contact-${name}`}
-        className="mt-2 w-full bg-transparent border-b-2 border-white/60 focus:border-white pb-3 outline-none text-base sm:text-lg font-medium text-white placeholder:text-white/75 transition-colors duration-300 resize-none"
+        className="mt-1 w-full bg-transparent border-b border-white/50 focus:border-white pb-1.5 outline-none text-sm sm:text-base font-medium text-white placeholder:text-white/60 transition-colors duration-200 resize-none"
       />
     ) : (
       <input
@@ -43,7 +43,7 @@ const Field = ({ label, name, value, onChange, type = "text", required, textarea
         required={required}
         placeholder={placeholder}
         data-testid={`contact-${name}`}
-        className="mt-2 w-full bg-transparent border-b-2 border-white/60 focus:border-white pb-3 outline-none text-base sm:text-lg font-medium text-white placeholder:text-white/75 transition-colors duration-300"
+        className="mt-1 w-full bg-transparent border-b border-white/50 focus:border-white pb-1.5 outline-none text-sm sm:text-base font-medium text-white placeholder:text-white/60 transition-colors duration-200"
       />
     )}
   </label>
@@ -79,113 +79,60 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="bg-[#fd0000] text-white" data-testid="contact">
-      {/* Headline CTA */}
-      <div className="mx-auto max-w-[1600px] px-6 md:px-12 pt-28 md:pt-40">
-        <Reveal>
-          <Overline color="text-white font-bold">Ready to transform your manufacturing?</Overline>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-display uppercase font-medium tracking-tighter leading-[0.9] text-[11vw] md:text-[8vw] mt-6 text-white">
-            Let's build smarter<br />manufacturing<span className="text-white/60">.</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-8 max-w-2xl text-lg sm:text-xl font-normal text-white leading-relaxed">
-            Whether you require a single wire processing machine or a fully integrated automated
-            production line, we have the expertise, technology and commitment to deliver.
-          </p>
-        </Reveal>
-      </div>
-
-      {/* Form + info */}
-      <div className="mx-auto max-w-[1600px] px-6 md:px-12 py-20 md:py-28 grid lg:grid-cols-12 gap-16">
-        <form onSubmit={submit} className="lg:col-span-7 grid sm:grid-cols-2 gap-10" data-testid="contact-form">
-          <Field label="Full Name" name="name" value={form.name} onChange={onChange} required placeholder="Your name" />
-          <Field label="Email" name="email" type="email" value={form.email} onChange={onChange} required placeholder="you@company.com" />
-          <Field label="Company" name="company" value={form.company} onChange={onChange} placeholder="Organisation" />
-          <Field label="Phone" name="phone" value={form.phone} onChange={onChange} placeholder="+91 …" />
-          <div className="sm:col-span-2">
-            <Field label="Area of Interest" name="interest" value={form.interest} onChange={onChange} placeholder="e.g. Wire harness processing line" />
-          </div>
-          <div className="sm:col-span-2">
-            <Field label="Message" name="message" value={form.message} onChange={onChange} required textarea placeholder="Tell us about your production goals…" />
-          </div>
-          <div className="sm:col-span-2">
-            <motion.button
-              whileTap={{ scale: 0.98 }}
-              type="submit"
-              disabled={loading}
-              data-testid="contact-submit"
-              className="group inline-flex items-center gap-3 bg-white text-[#fd0000] px-8 py-4 font-medium hover:bg-[#0A0A0A] hover:text-white transition-colors duration-300 disabled:opacity-60 cursor-pointer"
-            >
-              {loading ? (
-                <>
-                  <Loader2 size={18} className="animate-spin" /> Sending…
-                </>
-              ) : (
-                <>
-                  Request a Quote <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </>
-              )}
-            </motion.button>
-          </div>
-        </form>
-
-        <div className="lg:col-span-4 lg:col-start-9 flex flex-col gap-6 border-t border-white/30 pt-10 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-12 text-white">
-          {/* Email Support */}
-          <div>
-            <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/80 font-bold block mb-2">
-              Email Support
-            </span>
-            <div className="space-y-1">
-              {CONTACT.emails.map((e) => (
-                <a key={e} href={`mailto:${e}`} className="block font-display text-lg sm:text-xl font-normal hover:underline text-white">
-                  {e}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Phone Lines */}
-          <div>
-            <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/80 font-bold block mb-2">
-              Phone Lines
-            </span>
-            <div className="space-y-1">
-              {CONTACT.phones.map((p) => (
-                <a key={p} href={`tel:${p.replace(/\s/g, "").replace(/-/g, "")}`} className="block font-display text-lg sm:text-xl font-normal hover:underline text-white">
-                  {p}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Manufacturing Units */}
-          <div className="space-y-4 pt-4 border-t border-white/20">
-            <div>
-              <span className="font-mono text-xs font-bold text-white uppercase tracking-wider block mb-1">
-                UNIT I (Faridabad Plant)
-              </span>
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
-                Plot No. 56A, Gali No. 6, Krishna Colony, Industrial Area, Sector 25, Faridabad – 121004 (Hr.) INDIA
-              </p>
-            </div>
-            <div>
-              <span className="font-mono text-xs font-bold text-white uppercase tracking-wider block mb-1">
-                UNIT II (Pune Plant)
-              </span>
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
-                Plot No. A-7/2/F-8, Industrial Area, Phase IV, MIDC Chakan Tal Khed, Nighoje, Pune – 410501
-              </p>
-            </div>
-          </div>
-
-          <p className="text-white/80 font-light text-xs leading-relaxed mt-auto pt-4 border-t border-white/20">
-            Professional consultation · Installation assistance · Operator training · Preventive
-            maintenance · Spare parts · Long-term service partnerships.
-          </p>
+    <section id="contact" className="bg-[#fd0000] text-white py-12 md:py-16" data-testid="contact">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-12 grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        {/* Left: Heading */}
+        <div className="lg:col-span-5 lg:sticky lg:top-24">
+          <Reveal>
+            <Overline color="text-white/70 font-bold">Get in Touch</Overline>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mt-3 leading-[1.05] text-white">
+              Let&apos;s build smarter manufacturing<span className="text-white/50">.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mt-4 text-sm font-light text-white/85 leading-relaxed max-w-md">
+              Whether you require a single wire processing machine or a fully integrated automated
+              production line, we have the expertise, technology and commitment to deliver.
+            </p>
+          </Reveal>
         </div>
+
+        {/* Right: Form */}
+        <Reveal delay={0.15} className="lg:col-span-7">
+          <form onSubmit={submit} className="grid sm:grid-cols-2 gap-x-6 gap-y-4" data-testid="contact-form">
+            <Field label="Full Name" name="name" value={form.name} onChange={onChange} required placeholder="Your name" />
+            <Field label="Email" name="email" type="email" value={form.email} onChange={onChange} required placeholder="you@company.com" />
+            <Field label="Company" name="company" value={form.company} onChange={onChange} placeholder="Organisation" />
+            <Field label="Phone" name="phone" value={form.phone} onChange={onChange} placeholder="+91 …" />
+            <div className="sm:col-span-2">
+              <Field label="Area of Interest" name="interest" value={form.interest} onChange={onChange} placeholder="e.g. Wire harness processing line" />
+            </div>
+            <div className="sm:col-span-2">
+              <Field label="Message" name="message" value={form.message} onChange={onChange} required textarea placeholder="Tell us about your production goals…" />
+            </div>
+            <div className="sm:col-span-2 pt-2">
+              <motion.button
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                disabled={loading}
+                data-testid="contact-submit"
+                className="group inline-flex items-center gap-2.5 bg-white text-[#fd0000] px-6 py-3 text-sm font-medium hover:bg-[#0A0A0A] hover:text-white transition-colors duration-300 disabled:opacity-60 cursor-pointer"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 size={16} className="animate-spin" /> Sending…
+                  </>
+                ) : (
+                  <>
+                    Request a Quote <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </>
+                )}
+              </motion.button>
+            </div>
+          </form>
+        </Reveal>
       </div>
     </section>
   );
