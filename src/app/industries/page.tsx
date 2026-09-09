@@ -271,7 +271,7 @@ export default function IndustriesPage() {
           <div className="mx-auto max-w-[1600px] px-6 md:px-12">
             <h3 className="font-display text-2xl font-light">Require Custom Machinery Blueprint for Your Sector?</h3>
             <p className="mt-1.5 text-white/90 font-light text-xs sm:text-sm">
-              Visit our Gurugram facility or dispatch your wire samples for automated crimp & throughput evaluation.
+              Visit our Faridabad or Pune facility or dispatch your wire samples for automated crimp & throughput evaluation.
             </p>
             <div className="mt-5 flex flex-wrap justify-center gap-4">
               <Link

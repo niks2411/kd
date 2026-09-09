@@ -114,7 +114,7 @@ export default function ProcessPage() {
                   <PhoneCall size={14} /> Process Audit Line
                 </div>
                 <h4 className="text-sm font-semibold">Request a Production Audit</h4>
-                <p className="text-xs text-[#9CA3AF] font-light">Send your wire samples to Gurugram for free crimp force & speed validation.</p>
+                <p className="text-xs text-[#9CA3AF] font-light">Send your wire samples to our Faridabad plant for free crimp force & speed validation.</p>
                 <a
                   href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
                   className="inline-flex items-center gap-1.5 text-xs font-mono text-[#fd0000] font-semibold hover:underline"
@@ -230,7 +230,7 @@ export default function ProcessPage() {
           <div className="mx-auto max-w-[1600px] px-6 md:px-12">
             <h3 className="font-display text-2xl font-light">Ready to Audit Your Machine Kinematics & Cycle Speed?</h3>
             <p className="mt-1.5 text-white/90 font-light text-xs sm:text-sm">
-              Visit our Gurugram facility or dispatch your wire samples for automated crimp force & speed testing.
+              Visit our Faridabad or Pune facility or dispatch your wire samples for automated crimp force & speed testing.
             </p>
             <div className="mt-5 flex flex-wrap justify-center gap-4">
               <Link

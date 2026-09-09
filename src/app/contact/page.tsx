@@ -110,7 +110,7 @@ export default function ContactPage() {
                   <CheckCircle2 size={15} /> Free Crimp Sample Testing
                 </div>
                 <p className="text-xs text-[#525252] leading-relaxed">
-                  Dispatch your wire samples to our Gurugram plant for automated pull force and crimp cross-section analysis.
+                  Dispatch your wire samples to our Faridabad plant for automated pull force and crimp cross-section analysis.
                 </p>
               </div>
             </aside>
@@ -210,7 +210,7 @@ export default function ContactPage() {
         {/* BOTTOM VIVID RED CTA BANNER */}
         <section className="py-12 bg-[#fd0000] text-white text-center">
           <div className="mx-auto max-w-[1600px] px-6 md:px-12">
-            <h3 className="font-display text-2xl font-light">Visit Our Gurugram Manufacturing Facility</h3>
+            <h3 className="font-display text-2xl font-light">Visit Our Manufacturing Facilities (Faridabad & Pune)</h3>
             <p className="mt-1.5 text-white/90 font-light text-xs sm:text-sm">
               Experience live machine demonstrations and automated crimp force testing on your own wire samples.
             </p>

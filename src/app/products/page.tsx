@@ -372,7 +372,7 @@ function ProductsContent() {
                 <PhoneCall size={14} /> Technical Support
               </div>
               <h4 className="text-sm font-semibold">Need Assistance Choosing a Machine?</h4>
-              <p className="text-xs text-[#9CA3AF] font-light">Speak directly with our Gurugram engineering team for custom wire specs.</p>
+              <p className="text-xs text-[#9CA3AF] font-light">Speak directly with our engineering team for custom wire specs.</p>
               <a
                 href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
                 className="inline-flex items-center gap-1.5 text-xs font-mono text-[#fd0000] font-semibold hover:underline"
@@ -613,7 +613,7 @@ function ProductsContent() {
         <div className="mx-auto max-w-[1600px] px-6 md:px-12">
           <h3 className="font-display text-2xl font-light">Require Custom Machinery Blueprint & Demo?</h3>
           <p className="mt-1.5 text-white/90 font-light text-xs sm:text-sm">
-            Visit our Gurugram facility or dispatch your wire samples for automated crimp force & speed testing.
+            Visit our Faridabad or Pune facility or dispatch your wire samples for automated crimp force & speed testing.
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-4">
             <Link
