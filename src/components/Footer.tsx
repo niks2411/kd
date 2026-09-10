@@ -1,115 +1,197 @@
 "use client";
 
 import Link from "next/link";
-import { NAV_LINKS, CONTACT } from "@/lib/data";
-import { ArrowUp } from "lucide-react";
+import { ArrowUpRight, Play } from "lucide-react";
 
 export const Footer = () => {
-  const top = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
   return (
-    <footer className="bg-[#0A0A0A] text-white" data-testid="footer">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-12 py-16">
-        <div className="grid md:grid-cols-12 gap-8 lg:gap-12">
-          {/* Section 1: Brand & Philosophy */}
-          <div className="md:col-span-4">
-            <Link href="/" className="block mb-6 group w-fit">
-              <span className="font-display font-bold uppercase tracking-wider text-lg sm:text-[19px] text-white block leading-tight">
-                KD ENGINEERS INDIA PVT. LTD.
-              </span>
-              <span className="text-[11px] font-mono font-semibold tracking-wider text-[#fd0000] uppercase block mt-1">
-                SIMPLIFYING WIRING HARNESS MAKING
-              </span>
+    <footer className="bg-[#000000] text-white border-t border-[#1a1a1a]" data-testid="footer">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-12 pt-16 pb-8">
+        
+        {/* 4 COLUMNS GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12">
+          
+          {/* COLUMN 1: BRAND, TAGLINE & SOCIALS (4 Cols) */}
+          <div className="lg:col-span-4 space-y-5">
+            <Link href="/" className="inline-flex items-center gap-3.5 group">
+              <div className="w-12 h-12 bg-white rounded-xl p-1.5 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                <img src="/favicon.png" alt="KD Engineers Logo" className="w-full h-full object-contain" />
+              </div>
+              <div>
+                <span className="font-display font-bold uppercase tracking-wide text-base sm:text-lg text-white block leading-tight">
+                  KD ENGINEERS INDIA PVT. LTD.
+                </span>
+                <span className="text-[10px] font-mono font-bold tracking-wider text-[#fd0000] uppercase block mt-0.5">
+                  SIMPLIFYING WIRING HARNESS MAKING
+                </span>
+              </div>
             </Link>
-            <p className="text-white/55 font-light text-xs leading-relaxed max-w-sm">
+
+            <p className="text-white font-medium text-xs sm:text-[13px] leading-relaxed max-w-sm">
               Precision-engineered solutions for wiring harness automation, testing, wire and cable processing, crimping and assembly.
             </p>
-          </div>
 
-          {/* Section 2: Navigation (3-3 Split) */}
-          <div className="md:col-span-4">
-            <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/40">Navigation</span>
-            <div className="mt-5 grid grid-cols-2 gap-4 max-w-[220px]">
-              <ul className="space-y-3">
-                {NAV_LINKS.slice(0, 4).map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="text-white/70 hover:text-[#fd0000] transition-colors text-sm font-light">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <ul className="space-y-3">
-                {NAV_LINKS.slice(4, 7).map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="text-white/70 hover:text-[#fd0000] transition-colors text-sm font-light">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            {/* Social Buttons (YouTube & LinkedIn) */}
+            <div className="flex items-center gap-3 pt-2">
+              <a
+                href="https://www.youtube.com/@Kd_engineers"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-white/20 bg-[#0A0A0A] hover:border-[#fd0000] px-3 py-1.5 rounded-xs flex items-center gap-2 text-xs text-white transition-colors group font-bold"
+              >
+                <span className="bg-[#fd0000] text-white px-1.5 py-0.5 rounded-[2px] text-[9px] flex items-center justify-center">
+                  <Play size={10} fill="white" />
+                </span>
+                <span className="text-xs font-bold text-white">YouTube</span>
+                <ArrowUpRight size={12} className="text-white group-hover:text-[#fd0000] transition-colors" />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/kd-engineers/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-white/20 bg-[#0A0A0A] hover:border-[#fd0000] px-3 py-1.5 rounded-xs flex items-center gap-2 text-xs text-white transition-colors group font-bold"
+              >
+                <span className="bg-[#fd0000] text-white px-1 py-0.5 rounded-[2px] text-[10px] font-bold leading-none">
+                  in
+                </span>
+                <span className="text-xs font-bold text-white">LinkedIn</span>
+                <ArrowUpRight size={12} className="text-white group-hover:text-[#fd0000] transition-colors" />
+              </a>
             </div>
           </div>
-          <div className="md:col-span-4">
-            <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/40">Contact Us</span>
-            <div className="mt-5 space-y-4 text-xs font-light text-white/70">
-              {/* Emails */}
-              <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase text-[#fd0000] font-semibold block">Email Support</span>
-                {CONTACT.emails.map((e) => (
-                  <a key={e} href={`mailto:${e}`} className="block hover:text-[#fd0000] transition-colors">
-                    {e}
-                  </a>
-                ))}
-              </div>
 
-              {/* Phone Numbers */}
-              <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase text-[#fd0000] font-semibold block">Phone Lines</span>
-                {CONTACT.phones.map((p) => (
-                  <a key={p} href={`tel:${p.replace(/\s/g, "").replace(/-/g, "")}`} className="block hover:text-[#fd0000] transition-colors">
-                    {p}
-                  </a>
-                ))}
-              </div>
-            </div>
+          {/* COLUMN 2: PRODUCTS (3 Cols) */}
+          <div className="lg:col-span-3 space-y-4">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#fd0000] font-bold block">
+              PRODUCTS
+            </span>
+            <ul className="space-y-2.5 text-xs sm:text-[13px]">
+              <li>
+                <Link href="/products?cat=testing" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
+                  Testing & Quality Equipment
+                </Link>
+              </li>
+              <li>
+                <Link href="/products?cat=assembly" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
+                  Harness Assembly Aids
+                </Link>
+              </li>
+              <li>
+                <Link href="/products?cat=crimping" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
+                  Terminal Crimping Solutions
+                </Link>
+              </li>
+              <li>
+                <Link href="/products?cat=processing" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
+                  Wiring Harness Processing Machines
+                </Link>
+              </li>
+            </ul>
           </div>
-        </div>
 
-        {/* BOTTOM SECTION: MANUFACTURING UNITS & BACK TO TOP */}
-        <div className="mt-12 pt-8 border-t border-white/15 space-y-6">
-          {/* Manufacturing Units */}
-          <div className="grid md:grid-cols-2 gap-6 text-xs">
-            <div>
-              <span className="font-mono text-[11px] font-bold text-[#fd0000] uppercase tracking-wider block mb-1">
-                UNIT I (Faridabad Plant)
+          {/* COLUMN 3: EXPLORE (2 Cols) */}
+          <div className="lg:col-span-2 space-y-4">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#fd0000] font-bold block">
+              EXPLORE
+            </span>
+            <ul className="space-y-2.5 text-xs sm:text-[13px]">
+              <li>
+                <Link href="/solutions" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
+                  Solutions
+                </Link>
+              </li>
+              <li>
+                <Link href="/industries" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
+                  Industries
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
+                  About KD Engineers
+                </Link>
+              </li>
+              <li>
+                <Link href="/process" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
+                  Process & Methodology
+                </Link>
+              </li>
+              <li>
+                <Link href="/quality" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
+                  Quality & Engineering
+                </Link>
+              </li>
+              <li>
+                <Link href="/events" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
+                  Exhibitions & Events
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
+                  Resources
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* COLUMN 4: CONTACT (3 Cols) */}
+          <div className="lg:col-span-3 space-y-4 text-xs">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#fd0000] font-bold block">
+              CONTACT
+            </span>
+
+            <div className="space-y-1">
+              <a href="tel:+919953336623" className="block text-white hover:text-[#fd0000] font-bold text-xs sm:text-[13px] transition-colors">
+                +91 9953336623
+              </a>
+              <a href="mailto:info@kdengineers.in" className="block text-white hover:text-[#fd0000] font-bold text-xs sm:text-[13px] transition-colors">
+                info@kdengineers.in
+              </a>
+            </div>
+
+            {/* FARIDABAD */}
+            <div className="pt-2 space-y-0.5">
+              <span className="font-mono text-[11px] font-bold text-white uppercase tracking-wider block">
+                FARIDABAD
               </span>
-              <p className="text-white/70 leading-relaxed font-light">
-                Plot No. 56A, Gali No. 6, Krishna Colony, Industrial Area, Sector 25, Faridabad – 121004 (Hr.) INDIA
+              <p className="text-white font-medium text-[11px] leading-relaxed">
+                Unit I: Plot No. 56A, Gali No. 6, Krishna Colony Industrial Area, Sector 25, Faridabad - 121004 (Haryana)
               </p>
             </div>
-            <div>
-              <span className="font-mono text-[11px] font-bold text-[#fd0000] uppercase tracking-wider block mb-1">
-                UNIT II (Pune Plant)
+
+            {/* PUNE */}
+            <div className="pt-1 space-y-0.5">
+              <span className="font-mono text-[11px] font-bold text-white uppercase tracking-wider block">
+                PUNE
               </span>
-              <p className="text-white/70 leading-relaxed font-light">
-                Plot No. A-7/2/F-8, Industrial Area, Phase IV, MIDC Chakan Tal Khed, Nighoje, Pune – 410501
+              <p className="text-white font-medium text-[11px] leading-relaxed">
+                Unit II: Plot No. A-7/2/F-8, Industrial Area, Phase-IV, MIDC Chakan, Tal. Khed, Nighoje, Pune - 410501
               </p>
             </div>
           </div>
 
-          {/* Copyright & Back to top button */}
-          <div className="flex flex-col md:flex-row justify-between gap-4 items-start md:items-center">
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <p className="text-white/40 text-xs font-mono">© {new Date().getFullYear()} K.D. Engineers India Pvt. Ltd.</p>
-              <Link href="/privacy" className="text-white/40 hover:text-white/70 text-xs font-mono transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="text-white/40 hover:text-white/70 text-xs font-mono transition-colors">Terms & Conditions</Link>
-            </div>
-            <button onClick={top} className="group inline-flex items-center gap-2 text-white/60 hover:text-white text-xs font-mono uppercase tracking-widest cursor-pointer" data-testid="back-to-top">
-              Back to top <ArrowUp size={14} className="group-hover:-translate-y-1 transition-transform" />
-            </button>
-          </div>
         </div>
+
+        {/* BOTTOM COPYRIGHT & LEGAL LINKS BAR */}
+        <div className="border-t border-white/20 pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-white font-semibold">
+            <span>© {new Date().getFullYear()} K.D. Engineers India Pvt. Ltd.</span>
+            <Link href="/privacy" className="text-white font-semibold hover:text-[#fd0000] transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="text-white font-semibold hover:text-[#fd0000] transition-colors">
+              Terms & Conditions
+            </Link>
+          </div>
+
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="group inline-flex items-center gap-1.5 text-white hover:text-[#fd0000] text-xs font-mono uppercase tracking-wider transition-colors cursor-pointer font-bold"
+          >
+            Back to top <ArrowUpRight size={13} className="group-hover:-translate-y-0.5 transition-transform text-white" />
+          </button>
+        </div>
+
       </div>
     </footer>
   );

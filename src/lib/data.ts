@@ -548,6 +548,10 @@ export const CONTACT = {
     },
   ],
   address: "UNIT I: Faridabad, Haryana | UNIT II: Pune, Maharashtra",
+  socials: {
+    youtube: "https://www.youtube.com/@Kd_engineers",
+    linkedin: "https://www.linkedin.com/company/kd-engineers/posts/?feedView=all",
+  },
 };
 
 

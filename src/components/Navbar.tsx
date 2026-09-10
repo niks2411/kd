@@ -44,13 +44,13 @@ export const Navbar = () => {
         data-testid="navbar"
       >
         <div className="mx-auto max-w-[1600px] px-6 md:px-12 flex items-center justify-between py-0 my-0">
-          <Link href="/" className="flex items-center gap-3.5 group py-0 my-0" data-testid="logo-btn">
-            <img src="/logo without bg.jpg.jpeg" alt="KD Engineers India" className="h-20 sm:h-28 w-auto object-contain my-0 py-0 transition-transform group-hover:scale-105" />
-            <div className="flex flex-col justify-center my-0 py-0">
-              <span className="font-display font-bold uppercase tracking-wider text-lg sm:text-[19px] text-[#0A0A0A] leading-tight">
+          <Link href="/" className="flex items-center gap-3.5 group py-0 my-0 pl-1.5 sm:pl-0" data-testid="logo-btn">
+            <img src="/logo without bg.jpg.jpeg" alt="KD Engineers India" className="h-20 sm:h-24 md:h-28 w-auto object-contain my-0 py-0 transition-transform group-hover:scale-105" />
+            <div className="hidden sm:flex flex-col justify-center my-0 py-0">
+              <span className="font-display font-bold uppercase tracking-wider text-sm md:text-[19px] text-[#0A0A0A] leading-tight">
                 KD ENGINEERS INDIA PVT. LTD.
               </span>
-              <span className="text-[10px] sm:text-[11px] font-mono font-semibold tracking-wider text-[#fd0000] uppercase mt-0.5">
+              <span className="text-[9px] md:text-[11px] font-mono font-semibold tracking-wider text-[#fd0000] uppercase mt-0.5">
                 SIMPLIFYING WIRING HARNESS MAKING
               </span>
             </div>
@@ -168,22 +168,22 @@ export const Navbar = () => {
             })}
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2.5 sm:gap-4">
             <Link
               href="/contact"
               data-testid="nav-quote-btn"
-              className="bg-[#0A0A0A] text-white px-5 py-2.5 text-xs font-mono uppercase tracking-widest hover:bg-[#fd0000] transition-colors duration-300 shadow-sm"
+              className="bg-[#0A0A0A] text-white px-3.5 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-mono uppercase tracking-wider sm:tracking-widest hover:bg-[#fd0000] transition-colors duration-300 shadow-xs rounded-xs font-semibold whitespace-nowrap"
             >
               Request a Quote
             </Link>
 
             <button
               onClick={() => setOpen(true)}
-              className="lg:hidden text-[#0A0A0A] p-2 hover:text-[#fd0000] transition-colors"
+              className="lg:hidden text-[#0A0A0A] p-1.5 hover:text-[#fd0000] transition-colors cursor-pointer"
               aria-label="Open navigation menu"
               data-testid="mobile-menu-btn"
             >
-              <Menu size={24} />
+              <Menu size={22} />
             </button>
           </div>
         </div>
