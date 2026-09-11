@@ -126,11 +126,6 @@ export const Footer = () => {
                   Exhibitions & Events
                 </Link>
               </li>
-              <li>
-                <Link href="/resources" className="text-white font-semibold hover:text-[#fd0000] transition-colors block">
-                  Resources
-                </Link>
-              </li>
             </ul>
           </div>
 

@@ -279,7 +279,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
               {/* Multi-Angle Gallery Thumbnails */}
               <div className="grid grid-cols-4 gap-3">
-                {[product.img, "/images/hero.png", "/images/lab.png", "/images/about.png"].map((imgSrc, idx) => (
+                {((product as any).images ?? [product.img]).map((imgSrc: string, idx: number) => (
                   <button
                     key={idx}
                     onClick={() => setActiveImage(imgSrc)}
@@ -287,7 +287,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       activeImage === imgSrc ? "border-[#fd0000] ring-1 ring-[#fd0000]" : "border-[#E5E7EB] opacity-70 hover:opacity-100"
                     }`}
                   >
-                    <img src={imgSrc} alt={`Angle ${idx + 1}`} className="w-full h-full object-cover" />
+                    <img src={imgSrc} alt={`View ${idx + 1}`} className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>

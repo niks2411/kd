@@ -40,7 +40,7 @@ export default function ContactPage() {
         {/* SPLIT WORKSPACE: SIDEBAR + CONTACT FORM */}
         <section className="py-14 mx-auto max-w-[1600px] px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-8 items-start">
-            
+
             {/* LEFT STICKY SIDEBAR */}
             <aside className="lg:col-span-4 space-y-6 sticky top-28">
               {/* Contact Details Card */}
@@ -210,7 +210,7 @@ export default function ContactPage() {
         {/* BOTTOM VIVID RED CTA BANNER */}
         <section className="py-12 bg-[#fd0000] text-white text-center">
           <div className="mx-auto max-w-[1600px] px-6 md:px-12">
-            <h3 className="font-display text-2xl font-light">Visit Our Manufacturing Facilities (Faridabad & Pune)</h3>
+            <h3 className="font-display text-2xl font-light">Visit Our Manufacturing Facility Faridabad </h3>
             <p className="mt-1.5 text-white/90 font-light text-xs sm:text-sm">
               Experience live machine demonstrations and automated crimp force testing on your own wire samples.
             </p>
