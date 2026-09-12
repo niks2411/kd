@@ -25,7 +25,7 @@ const EXPERTISE_CARDS: ExpertiseCard[] = [
       "From continuity and insulation testing to high-voltage and customized testing solutions, our systems help manufacturers identify defects, validate performance and maintain consistent quality.",
     ],
     highlight: "Test with precision. Validate with confidence.",
-    img: IMAGES.machine3,
+    img: "/images/testing_bench_station.jpg",
   },
   {
     n: "02",
@@ -36,7 +36,7 @@ const EXPERTISE_CARDS: ExpertiseCard[] = [
       "Our solutions enable organized workflows, repeatable processes and improved operator efficiency — turning complex harness assembly into a controlled and reliable production process.",
     ],
     highlight: "Designed for your process. Built for repeatability.",
-    img: IMAGES.lab,
+    img: "/images/assembly_board_system.jpg",
   },
   {
     n: "03",
@@ -47,7 +47,7 @@ const EXPERTISE_CARDS: ExpertiseCard[] = [
       "From individual processing machines to customized automated systems, we help manufacturers reduce process variation, improve productivity and build with greater consistency.",
     ],
     highlight: "Precision in every cut. Consistency in every process.",
-    img: IMAGES.machine1,
+    img: "/images/wire_processing_machine.jpg",
   },
 ];
 
@@ -108,7 +108,7 @@ const ExpertiseSlideshow = () => {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Slide container */}
-      <div className="relative overflow-hidden border border-[#E5E7EB] bg-white" style={{ minHeight: 520 }}>
+      <div className="relative overflow-hidden border border-[#E5E7EB] bg-white rounded-sm shadow-xs" style={{ minHeight: 520 }}>
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={active}
@@ -121,19 +121,19 @@ const ExpertiseSlideshow = () => {
             className="grid lg:grid-cols-12 gap-0 h-full"
           >
             {/* Image side */}
-            <div className="lg:col-span-5 relative overflow-hidden group">
-              <div className="relative h-full min-h-[280px] lg:min-h-[520px]">
+            <div className="lg:col-span-5 relative overflow-hidden group bg-[#0A0A0A] flex items-center justify-center">
+              <div className="relative h-full min-h-[300px] lg:min-h-[520px] w-full overflow-hidden">
                 <img
                   src={card.img}
                   alt={card.title}
-                  className="absolute inset-0 h-full w-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-700"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Expert badge */}
-                <span className="absolute top-5 left-5 font-mono text-xs tracking-[0.2em] bg-[#0A0A0A] text-white px-3 py-1.5 font-bold z-10">
+                <span className="absolute top-5 left-5 font-mono text-xs tracking-[0.2em] bg-[#fd0000] text-white px-3 py-1.5 font-bold z-10 shadow-lg">
                   EXPERT {card.n}
                 </span>
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10 lg:bg-gradient-to-r lg:from-transparent lg:to-white pointer-events-none" />
+                {/* Subtle gradient shadow for polish */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
               </div>
             </div>
 
