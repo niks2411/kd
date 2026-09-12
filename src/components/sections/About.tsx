@@ -121,19 +121,19 @@ const ExpertiseSlideshow = () => {
             className="grid lg:grid-cols-12 gap-0 h-full"
           >
             {/* Image side */}
-            <div className="lg:col-span-5 relative overflow-hidden group bg-[#0A0A0A] flex items-center justify-center">
-              <div className="relative h-full min-h-[300px] lg:min-h-[520px] w-full overflow-hidden">
+            <div className="lg:col-span-5 relative overflow-hidden group">
+              <div className="relative h-full min-h-[280px] lg:min-h-[520px]">
                 <img
                   src={card.img}
                   alt={card.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover grayscale group-hover:grayscale-0 transition-[filter,transform] duration-700 group-hover:scale-105"
                 />
                 {/* Expert badge */}
-                <span className="absolute top-5 left-5 font-mono text-xs tracking-[0.2em] bg-[#fd0000] text-white px-3 py-1.5 font-bold z-10 shadow-lg">
+                <span className="absolute top-5 left-5 font-mono text-xs tracking-[0.2em] bg-[#0A0A0A] text-white px-3 py-1.5 font-bold z-10 shadow-md">
                   EXPERT {card.n}
                 </span>
-                {/* Subtle gradient shadow for polish */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10 lg:bg-gradient-to-r lg:from-transparent lg:to-white pointer-events-none" />
               </div>
             </div>
 
